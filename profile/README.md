@@ -10,11 +10,11 @@
 This community is independent of the original project. It does not represent
 or replace the original maintainers.
 
-## Three variants, one identity
+## Three variants
 
-- **Wave** (`wave`): the default dark variant.
-- **Dragon** (`dragon`): a darker variant for late-night sessions.
-- **Lotus** (`lotus`): the light variant.
+- 🌊 **Wave** (`wave`): the default dark variant.
+- 🐉 **Dragon** (`dragon`): a darker variant for late-night sessions.
+- 🪷 **Lotus** (`lotus`): the light variant.
 
 ## Application themes
 
