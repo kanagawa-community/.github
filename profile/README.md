@@ -1,11 +1,11 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kanagawa-community/.github/main/assets/branding/logo.png" alt="Kanagawa wave logo" width="500">
-</p>
+<img align="left" src="https://raw.githubusercontent.com/kanagawa-community/.github/main/assets/branding/logo.png" alt="Kanagawa logo" width="200">
 
-# Kanagawa community
+<h3>Kanagawa community</h3>
+<p>Community-maintained themes inspired by Hokusai's <em>The Great Wave off Kanagawa</em>.</p>
 
-Community-maintained Kanagawa themes for your favorite tools, inspired by
-Katsushika Hokusai's *The Great Wave off Kanagawa* and the original
+<br clear="both">
+
+Based on the original
 [Kanagawa colorscheme](https://github.com/rebelot/kanagawa.nvim) by
 [Tommaso Laurenzi (rebelot)](https://github.com/rebelot).
 
