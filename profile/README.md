@@ -2,7 +2,7 @@
 
 <h3>Kanagawa community</h3>
 <p>Community-maintained themes inspired by Hokusai's <em>The Great Wave off Kanagawa</em>.</p>
-<p>Based on the original <a href="https://github.com/rebelot/kanagawa.nvim">Kanagawa colorscheme</a> by <a href="https://github.com/rebelot">Tommaso Laurenzi (rebelot)</a>.</p>
+<p>Using the <a href="https://github.com/rebelot/kanagawa.nvim">Kanagawa palette</a> by <a href="https://github.com/rebelot">Tommaso Laurenzi (rebelot)</a>.</p>
 
 <br clear="both">
 <br>

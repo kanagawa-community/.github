@@ -3,6 +3,14 @@
 
 <h3>Kanagawa for <a href="{{APPLICATION_URL}}">{{APPLICATION}}</a></h3>
 <p>A community-maintained theme inspired by Hokusai's <em>The Great Wave off Kanagawa</em>.</p>
+<p>Using the <a href="https://github.com/rebelot/kanagawa.nvim">Kanagawa palette</a> by <a href="https://github.com/rebelot">Tommaso Laurenzi (rebelot)</a>.</p>
+
+<!-- Replace source placeholders; if source is not on GitHub, use its absolute URL. -->
+<!-- Optional: credit a specific implementation, palette, or other source when applicable. -->
+<!-- Example: Based on [source name](https://absolute-source-url). -->
+<!--
+<p>Based on <a href="{{SOURCE_URL}}">{{SOURCE_NAME}}</a> by <a href="{{AUTHOR_URL}}">{{AUTHOR_NAME}}</a>.</p>
+-->
 
 <!-- Wave accents: carpYellow, crystalBlue, autumnRed. Lotus accents: lotusYellow, lotusBlue4, lotusRed. -->
 <p>
@@ -30,11 +38,7 @@
 </p>
 
 <br clear="both">
-
-<!-- Replace source placeholders; if source is not on GitHub, use its absolute URL. -->
-
-<!-- Optional: credit a specific implementation, palette, or other source when applicable. -->
-<!-- Example: Based on [source name](https://absolute-source-url). -->
+<br>
 
 ## Previews
 
