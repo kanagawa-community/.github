@@ -36,21 +36,24 @@
 <!-- Optional: credit a specific implementation, palette, or other source when applicable. -->
 <!-- Example: Based on [source name](https://absolute-source-url). -->
 
-## Variants
+## Previews
 
 <!-- Keep screenshots in this port repository. Use comparable application content in each. -->
 
-### Wave
+<details>
+<summary>🌊 Wave</summary>
+<img src="assets/screenshots/wave.png" alt="Screenshot of {{APPLICATION}} using Kanagawa Wave">
+</details>
 
-![Screenshot of {{APPLICATION}} using Kanagawa Wave](assets/screenshots/wave.png)
+<details>
+<summary>🐉 Dragon</summary>
+<img src="assets/screenshots/dragon.png" alt="Screenshot of {{APPLICATION}} using Kanagawa Dragon">
+</details>
 
-### Dragon
-
-![Screenshot of {{APPLICATION}} using Kanagawa Dragon](assets/screenshots/dragon.png)
-
-### Lotus
-
-![Screenshot of {{APPLICATION}} using Kanagawa Lotus](assets/screenshots/lotus.png)
+<details>
+<summary>🪷 Lotus</summary>
+<img src="assets/screenshots/lotus.png" alt="Screenshot of {{APPLICATION}} using Kanagawa Lotus">
+</details>
 
 ## Requirements
 
