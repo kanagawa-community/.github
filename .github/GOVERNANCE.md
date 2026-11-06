@@ -72,6 +72,8 @@ Organization maintainers complete this when a port is adopted. The
 - The topics include `kanagawa`, `theme`, and the repository name. Automatic.
 - `README.md` follows the template, has no `{{placeholders}}` left, previews
   Wave, Dragon, and Lotus, and keeps screenshots under `assets/`.
+- The theme's colors come from the shared [palette](../PALETTE.md) and follow the
+  [style guide](../STYLE-GUIDE.md), with no values sampled from screenshots.
 - `LICENSE`, `cog.toml`, and the `commits.yml`, `files.yml`, and `assign.yml`
   workflows are present.
 - The port does not carry its own copies of the organization's health files,
