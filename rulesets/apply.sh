@@ -38,15 +38,17 @@ for repo in "$@"; do
     echo "ruleset: create 'main'"
   fi
 
-  echo "settings: rebase merge only, delete merged branches"
+  echo "settings: merge commits only, PR title as merge commit title, delete merged branches"
 
   if [[ "$apply" == true ]]; then
     gh api --method "$method" "$endpoint" --input "$dir/main.json" --silent
     gh api --method PATCH "repos/$org/$repo" \
-      -F allow_rebase_merge=true \
+      -F allow_merge_commit=true \
       -F allow_squash_merge=false \
-      -F allow_merge_commit=false \
+      -F allow_rebase_merge=false \
       -F delete_branch_on_merge=true \
+      -f merge_commit_title=PR_TITLE \
+      -f merge_commit_message=BLANK \
       --silent
     echo "applied"
   else

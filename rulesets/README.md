@@ -8,21 +8,25 @@ no organization-wide rulesets, so each repository gets its own copy.
 
 - Changes reach the default branch only through a pull request. There are no
   bypass actors, so maintainers follow the same path.
-- Rebase and merge is the only merge method, so history stays linear and each
-  commit lands on `main` as written.
-- Commits must be signed. Branch deletion, force pushes, and merge commits are
-  blocked.
+- A merge commit is the only merge method. The commits in a pull request land
+  on `main` unchanged, so their signatures are kept, and GitHub signs the merge
+  commit it creates.
+- Commits must be signed. Branch deletion and force pushes are blocked.
 - The `conventional-commits / check` status check must pass. It runs
   [`check-commits.yml`](../.github/workflows/check-commits.yml), which verifies
   every commit the pull request adds with [cocogitto](https://docs.cocogitto.io/).
 
-## Open question: signatures on rebase merges
+## Why merge commits
 
-A web rebase merge creates new commits, so the author's signatures do not carry
-over. Whether GitHub signs the new commits, which `required_signatures` needs,
-is not confirmed. Test it on a throwaway repository before applying this ruleset
-anywhere. If GitHub does not sign them, the rebase button stays unavailable, and
-the options are squash merging or dropping `required_signatures`.
+Squash and rebase merges create new commits on GitHub, and GitHub does not sign
+rebased commits. Rebasing the commits of a signed pull request left every one of
+them unsigned on `main`, so rebase merging cannot be combined with required
+signatures. A merge commit keeps the original commits, so it can. The ruleset
+leaves out linear history, because that rule forbids merge commits.
+
+Cocogitto ignores merge commits (`ignore_merge_commits = true` in `cog.toml`),
+so their default messages do not need to be conventional. Releases and
+changelogs come from the commits inside each pull request.
 
 ## History before conventional commits
 
@@ -37,8 +41,8 @@ rulesets/apply.sh neovim .github           # dry run
 rulesets/apply.sh --apply neovim .github   # make the changes
 ```
 
-The script also sets the repository to rebase merge only and to delete merged
-branches. If a repository still has a ruleset named `master`, it is replaced in
+The script also sets the repository to allow merge commits only, to use the pull
+request title as the merge commit title, and to delete merged branches. If a repository still has a ruleset named `master`, it is replaced in
 place.
 
 New ports start from the [template repository](https://github.com/kanagawa-community/template).
@@ -51,3 +55,6 @@ The required check name, `conventional-commits / check`, is the caller job id
 followed by the job name in the reusable workflow. Confirm it matches the name
 GitHub shows on a pull request before relying on it. A mismatch leaves pull
 requests waiting for a check that never reports.
+
+Also confirm that the first merge commit made on the web shows as Verified.
+The ruleset needs GitHub to sign it.
