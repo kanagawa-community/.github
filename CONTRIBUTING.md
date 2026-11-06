@@ -47,8 +47,8 @@ documentation.
 - Sign your commits. The default branch rejects unsigned commits. GitHub's guide to
   [signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
   explains how to set it up.
-- Pull requests are merged with rebase and merge, and direct pushes to the
-  default branch are blocked. See [rulesets](rulesets/README.md).
+- Pull requests are merged with a merge commit, which keeps your signed commits,
+  and direct pushes to the default branch are blocked. See [rulesets](rulesets/README.md).
 - Use the repository's `.editorconfig` so indentation and line endings match.
 
 Contributions must be your own work or content you have permission to share.

@@ -22,7 +22,7 @@ jobs:
         with:
           install-only: true
 
-      # Rebase merging puts each commit on main as written, so every commit
+      # Merge commits put each commit on main as written, so every commit
       # must be conventional. Only commits introduced by this pull request are
       # checked, so history from before conventional commits were required never
       # fails the check.
