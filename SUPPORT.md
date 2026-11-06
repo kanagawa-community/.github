@@ -17,4 +17,4 @@ the port repository.
 ## Shared organization issues
 
 Use this repository's issue tracker for questions about shared organization
-resources, the README template, shared branding, or proposals for a new port.
+resources, the template repository, shared branding, or proposals for a new port.
