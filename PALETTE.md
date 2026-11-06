@@ -9,11 +9,11 @@ changes there first, and ports follow. This page and the swatches in
 [assets/palette](assets/palette/) are generated from it by
 [scripts/generate-palette.py](scripts/generate-palette.py).
 
-Each color is listed under the roles it plays in the variant. A role is the
-same across variants (`syn.string` is the string color in Wave, Dragon, and
-Lotus), but the color behind it is not, so map your port by role, not by
-color name. Names such as `sumiInk3` are only labels: two variants can share
-a name or a hex value for different roles.
+Each color lists the roles it plays in its variant. A role keeps its meaning
+across variants (`syn.string` is the string color in Wave, Dragon, and Lotus)
+but its color changes, so map your port by role. Color names such as
+`sumiInk3` are labels: variants can share a name or a hex value for different
+roles.
 
 Swatches are also published at stable raw URLs:
 

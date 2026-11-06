@@ -22,6 +22,10 @@ or replace the original maintainers.
 - 🐉 Dragon (`dragon`): a darker variant for late-night sessions.
 - 🪷 Lotus (`lotus`): the light variant.
 
+The [palette](https://github.com/kanagawa-community/.github/blob/main/PALETTE.md)
+and [style guide](https://github.com/kanagawa-community/.github/blob/main/STYLE-GUIDE.md)
+give every color of each variant and the role it plays.
+
 ## Ports
 
 A port is a Kanagawa implementation for one application. Every port supports all

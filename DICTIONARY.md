@@ -20,6 +20,8 @@ discussions across kanagawa-community.
   identifiers (`wave`, `dragon`, `lotus`) in code and configuration. Do not use
   "flavor" as a synonym.
 - **Palette**: named colors and their values, not images of those colors.
+- **Role**: the job a color does in a theme, such as `syn.string`. A role has the
+  same meaning in every variant but a different color.
 - **Port**: a Kanagawa implementation for one application, such as Neovim. A port
   supports all three variants.
   Introduce it as an "application theme" when readers may not know the term.
@@ -33,7 +35,8 @@ discussions across kanagawa-community.
 - **Asset**: supporting media, such as an image, SVG, or font.
 - **Documentation asset**: media used to explain or present a theme. Keep
   application-specific documentation assets with their port; store only
-  organization-wide branding in the `.github` repository.
+  organization-wide branding and the palette swatches in the `.github`
+  repository.
 - **Runtime asset**: media needed for a theme to work. Keep it with its port.
 - **Branding**: logos, banners, and shared identity artwork.
 - **Screenshot**: an actual application capture.
@@ -48,6 +51,6 @@ discussions across kanagawa-community.
 
 ## Asset folder names
 
-Use `assets/branding/` in `.github` for shared organization identity. Keep
-application screenshots, swatches, and palette examples in the relevant port
-repository.
+Use `assets/branding/` in `.github` for shared organization identity and
+`assets/palette/` for the palette swatches. Keep application screenshots in the
+relevant port repository.

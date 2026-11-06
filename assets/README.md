@@ -1,7 +1,7 @@
 # Shared branding assets
 
-Use this repository for branding shared across Kanagawa Community, such as the
-logo and other identity artwork.
+Use this repository for branding and the palette swatches shared across Kanagawa
+Community, such as the logo and other identity artwork.
 
 Keep screenshots and runtime assets in their port repositories. Each port should
 be able to document and use its theme without depending on files in another
