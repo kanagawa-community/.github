@@ -13,7 +13,7 @@ to archive.
   reports under the [Code of Conduct](CODE_OF_CONDUCT.md).
 - **Port maintainers** are responsible for one port repository. They triage
   issues, review changes, publish releases, and keep the port aligned with the
-  [dictionary](DICTIONARY.md) and the [template repository](https://github.com/kanagawa-community/template).
+  [dictionary](../DICTIONARY.md) and the [template repository](https://github.com/kanagawa-community/template).
 - **Contributors** are anyone who opens an issue, sends a pull request, or helps
   in discussion. Contributions are welcome in any form.
 
@@ -61,7 +61,7 @@ respond.
 ### Adoption checklist
 
 Organization maintainers complete this when a port is adopted. The
-[adopt-port script](scripts/adopt-port.sh) reports each item and, with
+[adopt-port script](../scripts/adopt-port.sh) reports each item and, with
 `--apply`, performs the ones marked automatic.
 
 - The repository name is the application name in lowercase kebab-case, such as
@@ -78,7 +78,7 @@ Organization maintainers complete this when a port is adopted. The
   such as the Code of Conduct. The ones in this repository apply.
 - A baseline tag `0.1.0` exists. Automatic.
 - The shared ruleset and merge settings are applied. Automatic. See
-  [rulesets](rulesets/README.md).
+  [rulesets](../rulesets/README.md).
 
 Run `scripts/adopt-port.sh <repository>` for a dry run, then add `--apply`.
 
@@ -98,7 +98,7 @@ they complete the adoption checklist as soon as each one exists.
 Every port credits the project it derives from, and this organization credits
 its own inspiration. Attribution is never removed to change the appearance of a
 port. Relocating or adapting shared material keeps the original license notice,
-as [assets/README.md](assets/README.md) describes.
+as [assets/README.md](../assets/README.md) describes.
 
 ## Independence
 

@@ -125,10 +125,12 @@ for path in README.md LICENSE cog.toml; do
 done
 
 # Health files come from the organization .github repository.
-for path in CODE_OF_CONDUCT.md SUPPORT.md SECURITY.md; do
-  if exists "$path"; then
-    warn "$path found; the organization-wide file is used instead"
-  fi
+for name in CODE_OF_CONDUCT.md SUPPORT.md SECURITY.md; do
+  for path in "$name" ".github/$name"; do
+    if exists "$path"; then
+      warn "$path found; the organization-wide file is used instead"
+    fi
+  done
 done
 
 # Baseline tag, so cocogitto has a starting point.
