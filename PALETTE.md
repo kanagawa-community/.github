@@ -3,8 +3,9 @@
 # Kanagawa palette
 
 Every color a port needs, for each variant. Use these values instead of
-sampling screenshots or guessing from the Neovim plugin. The machine-readable
-source is [palette.json](palette.json); this page and the swatches in
+sampling screenshots or guessing from an existing port. [palette.json](palette.json)
+is the source of truth for every port, including the Neovim plugin: a color
+changes there first, and ports follow. This page and the swatches in
 [assets/palette](assets/palette/) are generated from it by
 [scripts/generate-palette.py](scripts/generate-palette.py).
 
