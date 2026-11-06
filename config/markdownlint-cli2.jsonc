@@ -1,0 +1,16 @@
+// Shared markdownlint configuration. A port with its own markdownlint
+// configuration file uses that instead.
+{
+  "gitignore": true,
+  "config": {
+    "default": true,
+    // Prose is wrapped by hand, and tables and URLs run long.
+    "MD013": false,
+    // README headers use inline HTML for the logo and badges.
+    "MD033": false,
+    // READMEs open with the logo, not a heading.
+    "MD041": false,
+    // Match the table layout Prettier produces.
+    "MD060": { "style": "aligned" },
+  },
+}
