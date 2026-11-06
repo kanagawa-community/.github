@@ -1,0 +1,33 @@
+name: Check commits
+
+# Reusable workflow. Ports call it from their own workflow; see
+# the template repository's .github/workflows/commits.yml.
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - uses: cocogitto/cocogitto-action@9a9fe03b31c47444290c0d7f9b1ee1b44ee13f20 # v4.1.0
+        with:
+          install-only: true
+
+      # Rebase merging puts each commit on main as written, so every commit
+      # must be conventional. Only commits introduced by this pull request are
+      # checked, so history from before conventional commits were required never
+      # fails the check.
+      - name: Check pull request commits
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: cog check "$BASE_SHA..$HEAD_SHA"
