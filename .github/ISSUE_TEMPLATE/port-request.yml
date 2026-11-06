@@ -33,18 +33,14 @@ body:
       placeholder: MIT
     validations:
       required: true
-  - type: dropdown
+  - type: checkboxes
     id: variants
     attributes:
       label: Variants
-      description: New ports are expected to support all three variants.
-      multiple: true
+      description: Every port must support all three variants.
       options:
-        - Wave
-        - Dragon
-        - Lotus
-    validations:
-      required: true
+        - label: The port will support Wave, Dragon, and Lotus.
+          required: true
   - type: textarea
     id: maintainers
     attributes:

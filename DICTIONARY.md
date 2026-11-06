@@ -9,8 +9,7 @@ discussions across kanagawa-community.
   Hokusai's _The Great Wave off Kanagawa_.
 - **kanagawa-community**: the independent community ecosystem and GitHub
   organization hosting its work.
-- **Upstream**: the original project from which work derives. For the current
-  Neovim port, this is [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim).
+- **Upstream**: the original project from which work derives.
 - **Community-maintained**: maintained within this ecosystem. This does not imply
   upstream endorsement, official status, or succession. Do not describe a port as
   "official" without an explicit agreement.
@@ -21,7 +20,8 @@ discussions across kanagawa-community.
   identifiers (`wave`, `dragon`, `lotus`) in code and configuration. Do not use
   "flavor" as a synonym.
 - **Palette**: named colors and their values, not images of those colors.
-- **Port**: a Kanagawa implementation for one application, such as Neovim.
+- **Port**: a Kanagawa implementation for one application, such as Neovim. A port
+  supports all three variants.
   Introduce it as an "application theme" when readers may not know the term.
 - **Integration**: support within a port for another component, such as the Neovim
   port's Telescope integration.
