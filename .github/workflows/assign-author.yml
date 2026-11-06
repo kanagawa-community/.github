@@ -1,0 +1,31 @@
+name: Assign author
+
+# Reusable workflow. Ports call it from their own workflow; see the template
+# repository's .github/workflows/assign.yml.
+on:
+  workflow_call:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  assign:
+    name: assign
+    runs-on: ubuntu-latest
+    steps:
+      # No code from the pull request is checked out or run, which keeps the
+      # privileged pull_request_target event safe for pull requests from forks.
+      - name: Assign the pull request to its author
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
+        run: |
+          if [ "$AUTHOR_TYPE" = "Bot" ]; then
+            echo "Skipping bot author $AUTHOR."
+            exit 0
+          fi
+          # GitHub only assigns users who can be assignees. External authors
+          # may not qualify, so a failure here must not fail the pull request.
+          gh pr edit "$PR_URL" --add-assignee "$AUTHOR" || echo "Could not assign $AUTHOR."
