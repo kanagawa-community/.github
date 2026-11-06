@@ -37,11 +37,17 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Download shared configuration
+      # This repository's own pull requests use the configuration they contain,
+      # so changes to it are tested. Ports download it from the default branch.
+      - name: Get shared configuration
         run: |
-          base=https://raw.githubusercontent.com/kanagawa-community/.github/main/config
-          curl -fsSL "$base/markdownlint-cli2.jsonc" -o "$RUNNER_TEMP/markdownlint-cli2.jsonc"
-          curl -fsSL "$base/yamllint.yml" -o "$RUNNER_TEMP/yamllint.yml"
+          if [ "$GITHUB_REPOSITORY" = "kanagawa-community/.github" ]; then
+            cp config/markdownlint-cli2.jsonc config/yamllint.yml "$RUNNER_TEMP/"
+          else
+            base=https://raw.githubusercontent.com/kanagawa-community/.github/main/config
+            curl -fsSL "$base/markdownlint-cli2.jsonc" -o "$RUNNER_TEMP/markdownlint-cli2.jsonc"
+            curl -fsSL "$base/yamllint.yml" -o "$RUNNER_TEMP/yamllint.yml"
+          fi
 
       - name: Lint Markdown
         run: |
