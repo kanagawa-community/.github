@@ -28,8 +28,7 @@ A port is a Kanagawa implementation for one application. Every port supports all
 three variants and documents its installation and application-specific
 configuration.
 
-- [Neovim](https://github.com/kanagawa-community/neovim): the community-maintained
-  port, derived from [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim).
+- [Neovim](https://github.com/kanagawa-community/neovim)
 
 ### Moving to their own repositories
 
