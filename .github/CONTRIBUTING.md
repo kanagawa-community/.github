@@ -38,6 +38,70 @@ open a pull request with the change when you have it ready.
 Use the [dictionary](../DICTIONARY.md) terms in issues, pull requests, and
 documentation.
 
+## Checks and tests
+
+Every pull request runs these checks, and all of them must pass before it can
+be merged:
+
+- `conventional-commits / check` verifies commit messages with
+  [cocogitto](https://docs.cocogitto.io/).
+- `files / format` checks formatting with [Prettier](https://prettier.io/) for
+  Markdown, JSON, and YAML, and with [taplo](https://taplo.tamasfe.dev/) for
+  TOML.
+- `files / lint` runs [markdownlint](https://github.com/DavidAnson/markdownlint-cli2),
+  [yamllint](https://github.com/adrienverge/yamllint), and
+  [actionlint](https://github.com/rhysd/actionlint).
+
+Fix formatting before you push with `npx prettier --write` on the files you
+changed and `npx @taplo/cli fmt` for TOML. The tool versions are pinned in
+[`check-files.yml`](workflows/check-files.yml).
+
+A port can keep its own configuration for any of these tools. A configuration
+file in the port, such as `.prettierrc.json`, `.markdownlint-cli2.jsonc`, or
+`.yamllint`, takes precedence over the shared one in [config/](../config/). Use
+the tools' ignore files for generated files.
+
+A port can add its own tests as separate workflows. To make a test required,
+ask an organization maintainer to add a ruleset that requires its check.
+Rulesets add up, so this leaves the shared one unchanged.
+
+## Testing workflows locally
+
+Before you open a pull request that changes a workflow, you can run it on your
+machine with [act](https://github.com/nektos/act). It needs Docker or Podman.
+
+```sh
+# Run the file checks
+act pull_request -W .github/workflows/files.yml
+
+# Run one job, or print what would run without running it
+act pull_request -W .github/workflows/files.yml -j format
+act pull_request -W .github/workflows/files.yml -n
+```
+
+- The `.actrc` file in the repository picks a runner image that includes Node
+  and common tools. The first run downloads it.
+- With Podman, point act at the Podman socket by setting `DOCKER_HOST` to
+  `unix://$XDG_RUNTIME_DIR/podman/podman.sock`.
+- The commit check reads the pull request's base and head commits, so give it an
+  event file with `-e event.json`:
+
+  ```json
+  {
+    "pull_request": {
+      "base": { "sha": "the commit your branch started from" },
+      "head": { "sha": "your latest commit" }
+    }
+  }
+  ```
+
+- Do not give act a real `GITHUB_TOKEN` for the release or assign workflows.
+  They push tags, create releases, and edit pull requests, so leave them to
+  GitHub.
+
+Act does not cover rulesets, required checks, merging, commit signing, or the
+exact behavior of `pull_request_target`. Check those on GitHub.
+
 ## Commits, branches, and formatting
 
 - Name branches `<type>/<short-description>`, where the type is a commit type
