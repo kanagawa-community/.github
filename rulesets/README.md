@@ -12,11 +12,15 @@ no organization-wide rulesets, so each repository gets its own copy.
   on `main` unchanged, so their signatures are kept, and GitHub signs the merge
   commit it creates.
 - Commits must be signed. Branch deletion and force pushes are blocked.
-- The `conventional-commits / check` status check must pass before a pull
-  request can be merged. Only GitHub Actions can report it, so another app
-  cannot post a status with the same name. It runs
-  [`check-commits.yml`](../.github/workflows/check-commits.yml), which verifies
-  every commit the pull request adds with [cocogitto](https://docs.cocogitto.io/).
+- Three status checks must pass before a pull request can be merged. Only GitHub
+  Actions can report them, so another app cannot post a status with the same
+  name.
+  - `conventional-commits / check` runs
+    [`check-commits.yml`](../.github/workflows/check-commits.yml), which verifies
+    every commit the pull request adds with [cocogitto](https://docs.cocogitto.io/).
+  - `files / format` and `files / lint` run
+    [`check-files.yml`](../.github/workflows/check-files.yml), which checks
+    formatting and lints Markdown, JSON, TOML, YAML, and workflows.
 
 ## Why merge commits
 
@@ -52,11 +56,18 @@ apply them when a port is adopted, and
 [`scripts/adopt-port.sh`](../scripts/adopt-port.sh) runs this script as one of
 its steps.
 
+## Tests added by a port
+
+A port that adds its own tests can require them without touching this ruleset.
+Rulesets add up, so a second ruleset on that repository that requires the new
+check applies alongside the shared one.
+
 ## After the first pull request
 
-The required check name, `conventional-commits / check`, is the caller job id
-followed by the job name in the reusable workflow. Confirm it matches the name
-GitHub shows on a pull request before relying on it. A mismatch leaves pull
+Each required check name is the caller job id followed by the job name in the
+reusable workflow. `conventional-commits / check` is confirmed. Confirm that
+`files / format` and `files / lint` match the names GitHub shows on a pull
+request before applying the ruleset. A mismatch leaves pull
 requests waiting for a check that never reports.
 
 Also confirm that the first merge commit made on the web shows as Verified.

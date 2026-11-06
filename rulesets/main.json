@@ -29,7 +29,12 @@
       "parameters": {
         "strict_required_status_checks_policy": false,
         "required_status_checks": [
-          { "context": "conventional-commits / check", "integration_id": 15368 }
+          {
+            "context": "conventional-commits / check",
+            "integration_id": 15368
+          },
+          { "context": "files / format", "integration_id": 15368 },
+          { "context": "files / lint", "integration_id": 15368 }
         ]
       }
     }

@@ -1,0 +1,74 @@
+name: Check files
+
+# Reusable workflow. Ports call it from their own workflow; see the template
+# repository's .github/workflows/files.yml. A port's own configuration for a
+# tool takes precedence over the shared one in this repository's config/ folder.
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  format:
+    name: format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Prettier fails on a file it cannot parse, so this also catches syntax
+      # errors in JSON and YAML.
+      - name: Check Markdown, JSON, and YAML
+        run: npx --yes prettier@3.9.10 --check "**/*.{md,json,jsonc,yml,yaml}"
+
+      - name: Check TOML
+        run: |
+          files="$(git ls-files '*.toml')"
+          if [ -z "$files" ]; then
+            echo "No TOML files."
+            exit 0
+          fi
+          # shellcheck disable=SC2086
+          npx --yes @taplo/cli@0.7.0 fmt --check $files
+
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # This repository's own pull requests use the configuration they contain,
+      # so changes to it are tested. Ports download it from the default branch.
+      - name: Get shared configuration
+        run: |
+          if [ "$GITHUB_REPOSITORY" = "kanagawa-community/.github" ]; then
+            cp config/markdownlint-cli2.jsonc config/yamllint.yml "$RUNNER_TEMP/"
+          else
+            base=https://raw.githubusercontent.com/kanagawa-community/.github/main/config
+            curl -fsSL "$base/markdownlint-cli2.jsonc" -o "$RUNNER_TEMP/markdownlint-cli2.jsonc"
+            curl -fsSL "$base/yamllint.yml" -o "$RUNNER_TEMP/yamllint.yml"
+          fi
+
+      - name: Lint Markdown
+        run: |
+          args=()
+          if ! ls .markdownlint* >/dev/null 2>&1; then
+            args=(--config "$RUNNER_TEMP/markdownlint-cli2.jsonc")
+          fi
+          npx --yes markdownlint-cli2@0.24.0 "${args[@]}" "**/*.md"
+
+      - name: Lint YAML
+        run: |
+          args=(-c "$RUNNER_TEMP/yamllint.yml")
+          if [ -e .yamllint ] || [ -e .yamllint.yml ] || [ -e .yamllint.yaml ]; then
+            args=()
+          fi
+          pipx run --spec yamllint==1.38.0 yamllint "${args[@]}" .
+
+      - name: Lint workflows
+        run: |
+          if [ ! -d .github/workflows ]; then
+            echo "No workflows."
+            exit 0
+          fi
+          docker run --rm -v "$PWD:/repo" --workdir /repo rhysd/actionlint:1.7.12 -color

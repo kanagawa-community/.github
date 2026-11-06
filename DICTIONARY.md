@@ -6,7 +6,7 @@ discussions across kanagawa-community.
 ## Identity
 
 - **Kanagawa**: the theme family and visual identity inspired by Katsushika
-  Hokusai's *The Great Wave off Kanagawa*.
+  Hokusai's _The Great Wave off Kanagawa_.
 - **kanagawa-community**: the independent community ecosystem and GitHub
   organization hosting its work.
 - **Upstream**: the original project from which work derives. For the current

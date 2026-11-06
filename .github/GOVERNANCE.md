@@ -72,8 +72,8 @@ Organization maintainers complete this when a port is adopted. The
 - The topics include `kanagawa`, `theme`, and the repository name. Automatic.
 - `README.md` follows the template, has no `{{placeholders}}` left, and keeps
   screenshots under `assets/`.
-- `LICENSE`, `cog.toml`, and the `commits.yml` and `assign.yml` workflows are
-  present.
+- `LICENSE`, `cog.toml`, and the `commits.yml`, `files.yml`, and `assign.yml`
+  workflows are present.
 - The port does not carry its own copies of the organization's health files,
   such as the Code of Conduct. The ones in this repository apply.
 - A baseline tag `0.1.0` exists. Automatic.

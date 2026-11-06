@@ -107,13 +107,15 @@ else
 fi
 
 # Required files.
-have_commits=true
-for path in README.md LICENSE cog.toml .github/workflows/commits.yml .github/workflows/assign.yml; do
+have_checks=true
+for path in README.md LICENSE cog.toml .github/workflows/commits.yml .github/workflows/files.yml .github/workflows/assign.yml; do
   if exists "$path"; then
     ok "$path"
   else
     todo "$path is missing"
-    [[ "$path" == ".github/workflows/commits.yml" ]] && have_commits=false
+    case "$path" in
+      .github/workflows/commits.yml | .github/workflows/files.yml) have_checks=false ;;
+    esac
   fi
 done
 
@@ -145,16 +147,16 @@ else
   fi
 fi
 
-# Ruleset and merge settings. The ruleset requires the commit check, so it is
-# skipped until the workflow that reports it exists.
-if [[ "$have_commits" == true ]]; then
+# Ruleset and merge settings. The ruleset requires the commit and file checks,
+# so it is skipped until the workflows that report them exist.
+if [[ "$have_checks" == true ]]; then
   if [[ "$apply" == true ]]; then
     "$root/rulesets/apply.sh" --apply "$repo"
   else
     "$root/rulesets/apply.sh" "$repo"
   fi
 else
-  todo "ruleset skipped: add .github/workflows/commits.yml first, or pull requests would wait for a check that never runs"
+  todo "ruleset skipped: add the commits.yml and files.yml workflows first, or pull requests would wait for checks that never run"
 fi
 
 echo
