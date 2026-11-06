@@ -14,6 +14,7 @@ community rooted in the original
 - [Template repository](https://github.com/kanagawa-community/template) - starting point for a new port: README, license, cocogitto config, and workflows
 - [Contributing](.github/CONTRIBUTING.md) - guidance for port and shared-repository contributions, including how to propose a port
 - [Issue forms](.github/ISSUE_TEMPLATE/) - port request and bug report forms used by default across the organization
+- [Pull request template](.github/pull_request_template.md) - default checklist for pull requests across the organization
 - [Rulesets](rulesets/README.md) - branch protection, signed commits, and conventional commit checks, with the script that applies them
 - [Shared tool configuration](config/) - markdownlint and yamllint settings used by the file checks
 - [Adopt-port script](scripts/adopt-port.sh) - checks a port against the adoption checklist and finishes its setup
