@@ -40,6 +40,20 @@ open a pull request with the change when you have it ready.
 Use the [dictionary](../DICTIONARY.md) terms in issues, pull requests, and
 documentation.
 
+### Changing a color
+
+[palette.json](../palette.json) is the source of truth for the colors of every
+port. A color changes here first, and ports follow.
+
+1. Open an issue or a pull request in this repository that says what changes and
+   why.
+2. Edit `palette.json`, keeping a color's `hex`, `rgb`, and `hsl` in step, then
+   run `scripts/generate-palette.py` and commit the regenerated
+   [palette](../PALETTE.md), [style guide](../STYLE-GUIDE.md), and swatches. The
+   `check-palette` workflow fails when they are out of date.
+3. Once the change is merged, each port updates to match. The port's
+   maintainers decide when.
+
 ## Checks and tests
 
 Every pull request runs these checks, and all of them must pass before it can

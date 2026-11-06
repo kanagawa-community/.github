@@ -41,10 +41,11 @@ documentation, workflows, scripts, and configuration. Two parts differ:
 
 ## Repository boundaries
 
-Application theme code, screenshots, swatches, and palette examples belong in
-their port repositories. Only branding shared across the organization belongs
-here. Runtime assets must remain with the port that needs them; using a theme
-must not require downloading documentation assets.
+Application theme code and screenshots belong in their port repositories. Only
+branding and the shared palette belong here: the logo, `palette.json`, and the
+generated palette pages and swatches. Runtime assets must remain with the port
+that needs them; using a theme must not require downloading documentation
+assets.
 
 When moving an asset, publish it here before adding README links that use it.
 Keep published paths stable because other repositories reference them by URL.
