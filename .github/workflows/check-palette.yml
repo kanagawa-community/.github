@@ -1,0 +1,25 @@
+name: Check palette
+
+on:
+  pull_request:
+    paths:
+      - palette.json
+      - PALETTE.md
+      - STYLE-GUIDE.md
+      - assets/palette/**
+      - scripts/generate-palette.py
+
+permissions:
+  contents: read
+
+jobs:
+  palette:
+    name: palette
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # PALETTE.md and the swatches are generated from palette.json. Edit the
+      # JSON, run scripts/generate-palette.py, and commit the result.
+      - name: Check generated files are up to date
+        run: python3 scripts/generate-palette.py --check
