@@ -29,7 +29,7 @@
       "parameters": {
         "strict_required_status_checks_policy": false,
         "required_status_checks": [
-          { "context": "conventional-commits / check" }
+          { "context": "conventional-commits / check", "integration_id": 15368 }
         ]
       }
     }
