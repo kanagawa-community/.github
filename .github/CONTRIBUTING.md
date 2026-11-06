@@ -35,7 +35,7 @@ Use this repository for identity, guidance, and resources shared across ports.
 Open an issue here to propose changes to shared documentation or branding, or
 open a pull request with the change when you have it ready.
 
-Use the [dictionary](DICTIONARY.md) terms in issues, pull requests, and
+Use the [dictionary](../DICTIONARY.md) terms in issues, pull requests, and
 documentation.
 
 ## Commits, branches, and formatting
@@ -52,10 +52,10 @@ documentation.
   [signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
   explains how to set it up.
 - Pull requests are merged with a merge commit, which keeps your signed commits,
-  and direct pushes to the default branch are blocked. See [rulesets](rulesets/README.md).
+  and direct pushes to the default branch are blocked. See [rulesets](../rulesets/README.md).
 - Use the repository's `.editorconfig` so indentation and line endings match.
 
 Contributions must be your own work or content you have permission to share.
 Follow the license and any contribution instructions in the repository receiving
 your change. Contributions to this repository are licensed under the
-[MIT License](LICENSE).
+[MIT License](../LICENSE).

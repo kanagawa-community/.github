@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Read [GOVERNANCE.md](https://github.com/kanagawa-community/.github/blob/main/GOVERNANCE.md)
+        Read [GOVERNANCE.md](https://github.com/kanagawa-community/.github/blob/main/.github/GOVERNANCE.md)
         for how proposals are accepted. Keep the description short. Port
         implementation details belong in the port repository once it exists.
   - type: input
