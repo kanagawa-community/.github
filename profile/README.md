@@ -20,14 +20,12 @@ or replace the original maintainers.
 
 ## Ports
 
-A port is a Kanagawa implementation for one application. Each port documents its
-installation, supported variants, and application-specific configuration.
+A port is a Kanagawa implementation for one application. Every port supports all
+three variants and documents its installation and application-specific
+configuration.
 
-| Application | Variants            | Repository                                                                |
-| ----------- | ------------------- | ------------------------------------------------------------------------- |
-| Neovim      | Wave, Dragon, Lotus | [kanagawa-community/neovim](https://github.com/kanagawa-community/neovim) |
-
-The Neovim port is derived from [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim).
+- [Neovim](https://github.com/kanagawa-community/neovim): the community-maintained
+  port, derived from [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim).
 
 ### Moving to their own repositories
 

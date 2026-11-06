@@ -37,8 +37,8 @@ or in the port repository.
 
 1. Proposed. Someone opens a
    [port request](https://github.com/kanagawa-community/.github/issues/new?template=port-request.yml).
-   The request names the application, its upstream source and license, the
-   planned maintainers, and the variants it will support.
+   The request names the application, its upstream source and license, and the
+   planned maintainers. Every port must support all three variants.
 2. Accepted. Organization maintainers confirm that the application fits the
    organization and that at least one maintainer has committed to the port. The
    proposal issue is closed as accepted.
@@ -46,7 +46,7 @@ or in the port repository.
    contributor's own account or by an organization maintainer in the
    organization, and reviewed. A repository from a contributor's account is
    transferred into `kanagawa-community`, then an organization maintainer
-   completes the adoption checklist below. The README supports Wave, Dragon, and
+   completes the adoption checklist below. The port must support Wave, Dragon, and
    Lotus and credits the upstream project.
 4. Maintained. The port publishes releases and responds to issues. Maintainers
    may ask for help in this repository when a change affects the shared guidance.
@@ -70,8 +70,8 @@ Organization maintainers complete this when a port is adopted. The
 - The description reads "Community-maintained Kanagawa theme for Application".
   Automatic when the script gets `--app`.
 - The topics include `kanagawa`, `theme`, and the repository name. Automatic.
-- `README.md` follows the template, has no `{{placeholders}}` left, and keeps
-  screenshots under `assets/`.
+- `README.md` follows the template, has no `{{placeholders}}` left, previews
+  Wave, Dragon, and Lotus, and keeps screenshots under `assets/`.
 - `LICENSE`, `cog.toml`, and the `commits.yml`, `files.yml`, and `assign.yml`
   workflows are present.
 - The port does not carry its own copies of the organization's health files,

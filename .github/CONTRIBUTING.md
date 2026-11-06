@@ -8,7 +8,7 @@ maintainers decide its installation, code, and release details.
 
 - Open port-specific fixes and documentation changes in the relevant port
   repository.
-- New and maintained ports are expected to support Wave, Dragon, and Lotus.
+- Every port must support Wave, Dragon, and Lotus.
 - Start from the [template repository](https://github.com/kanagawa-community/template). Keep screenshots,
   swatches, palette examples, and runtime assets in the port repository.
 - Attribute a source project when the implementation is based on one. Do not
@@ -17,8 +17,8 @@ maintainers decide its installation, code, and release details.
 ## Proposing a port
 
 1. Open a [port request](https://github.com/kanagawa-community/.github/issues/new?template=port-request.yml).
-   The form asks for the application, its upstream source and license, the
-   variants, and the planned maintainers.
+   The form asks for the application, its upstream source and license, and the
+   planned maintainers.
 2. Organization maintainers review the request against the
    [governance](GOVERNANCE.md) lifecycle: proposed, accepted, adopted.
 3. Build the port from the

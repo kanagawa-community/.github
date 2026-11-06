@@ -21,7 +21,8 @@ discussions across kanagawa-community.
   identifiers (`wave`, `dragon`, `lotus`) in code and configuration. Do not use
   "flavor" as a synonym.
 - **Palette**: named colors and their values, not images of those colors.
-- **Port**: a Kanagawa implementation for one application, such as Neovim.
+- **Port**: a Kanagawa implementation for one application, such as Neovim. A port
+  supports all three variants.
   Introduce it as an "application theme" when readers may not know the term.
 - **Integration**: support within a port for another component, such as the Neovim
   port's Telescope integration.
