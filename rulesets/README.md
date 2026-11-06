@@ -12,7 +12,9 @@ no organization-wide rulesets, so each repository gets its own copy.
   on `main` unchanged, so their signatures are kept, and GitHub signs the merge
   commit it creates.
 - Commits must be signed. Branch deletion and force pushes are blocked.
-- The `conventional-commits / check` status check must pass. It runs
+- The `conventional-commits / check` status check must pass before a pull
+  request can be merged. Only GitHub Actions can report it, so another app
+  cannot post a status with the same name. It runs
   [`check-commits.yml`](../.github/workflows/check-commits.yml), which verifies
   every commit the pull request adds with [cocogitto](https://docs.cocogitto.io/).
 
