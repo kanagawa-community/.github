@@ -23,9 +23,9 @@ or replace the original maintainers.
 A port is a Kanagawa implementation for one application. Each port documents its
 installation, supported variants, and application-specific configuration.
 
-| Application | Variants | Repository |
-| --- | --- | --- |
-| Neovim | Wave, Dragon, Lotus | [kanagawa-community/neovim](https://github.com/kanagawa-community/neovim) |
+| Application | Variants            | Repository                                                                |
+| ----------- | ------------------- | ------------------------------------------------------------------------- |
+| Neovim      | Wave, Dragon, Lotus | [kanagawa-community/neovim](https://github.com/kanagawa-community/neovim) |
 
 The Neovim port is derived from [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim).
 
@@ -61,5 +61,5 @@ Everyone taking part is expected to follow the [Code of Conduct](https://github.
 Report a suspected security issue privately through the
 [security policy](https://github.com/kanagawa-community/.github/blob/main/.github/SECURITY.md).
 
-Kanagawa's visual identity is inspired by Hokusai's *The Great Wave off Kanagawa*.
+Kanagawa's visual identity is inspired by Hokusai's _The Great Wave off Kanagawa_.
 The organization's structure is inspired by [Catppuccin](https://github.com/catppuccin).
