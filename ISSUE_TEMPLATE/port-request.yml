@@ -1,0 +1,59 @@
+name: Port request
+description: Propose a new Kanagawa port for an application.
+title: "Port request: "
+labels: ["port-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read [GOVERNANCE.md](https://github.com/kanagawa-community/.github/blob/main/GOVERNANCE.md)
+        for how proposals are accepted. Keep the description short. Port
+        implementation details belong in the port repository once it exists.
+  - type: input
+    id: application
+    attributes:
+      label: Application
+      description: Name of the application to receive a Kanagawa port.
+      placeholder: e.g. Alacritty
+    validations:
+      required: true
+  - type: input
+    id: upstream
+    attributes:
+      label: Application or upstream source
+      description: Link to the application's website or repository.
+      placeholder: https://example.org/project
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License of the planned port
+      description: The license the port repository will use. It must be compatible with the upstream license.
+      placeholder: MIT
+    validations:
+      required: true
+  - type: dropdown
+    id: variants
+    attributes:
+      label: Variants
+      description: New ports are expected to support all three variants.
+      multiple: true
+      options:
+        - Wave
+        - Dragon
+        - Lotus
+    validations:
+      required: true
+  - type: textarea
+    id: maintainers
+    attributes:
+      label: Planned maintainers
+      description: Who will maintain the port? Use GitHub usernames, and confirm each person has agreed.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else organization maintainers should know, such as an existing implementation to build on.
