@@ -45,9 +45,10 @@ The script also sets the repository to allow merge commits only, to use the pull
 request title as the merge commit title, and to delete merged branches. If a repository still has a ruleset named `master`, it is replaced in
 place.
 
-New ports start from the [template repository](https://github.com/kanagawa-community/template).
-Rulesets are not copied with a template repository, so run the script for each
-new port.
+Rulesets are not copied with a template repository. Organization maintainers
+apply them when a port is adopted, and
+[`scripts/adopt-port.sh`](../scripts/adopt-port.sh) runs this script as one of
+its steps.
 
 ## After the first pull request
 

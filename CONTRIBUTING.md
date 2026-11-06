@@ -21,9 +21,13 @@ maintainers decide its installation, code, and release details.
    variants, and the planned maintainers.
 2. Organization maintainers review the request against the
    [governance](GOVERNANCE.md) lifecycle: proposed, accepted, adopted.
-3. After acceptance, create the repository from the
-   [template repository](https://github.com/kanagawa-community/template), or ask
-   for an existing one to be transferred.
+3. Build the port from the
+   [template repository](https://github.com/kanagawa-community/template) in your
+   own account, and link it in the request when it is ready for review.
+4. After review, an organization maintainer asks you to transfer the repository
+   into the organization and completes the adoption checklist in the
+   [governance](GOVERNANCE.md) guide. You are welcome to stay on as a
+   maintainer.
 
 ## Shared organization resources
 

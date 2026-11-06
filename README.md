@@ -13,6 +13,7 @@ community rooted in the original
 - [Contributing](CONTRIBUTING.md) - guidance for port and shared-repository contributions, including how to propose a port
 - [Issue forms](ISSUE_TEMPLATE/) - port request and bug report forms used by default across the organization
 - [Rulesets](rulesets/README.md) - branch protection, signed commits, and conventional commit checks, with the script that applies them
+- [Adopt-port script](scripts/adopt-port.sh) - checks a port against the adoption checklist and finishes its setup
 - [Support](SUPPORT.md) - where to ask for help or report an issue
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Security policy](SECURITY.md) - private vulnerability reporting

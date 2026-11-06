@@ -52,6 +52,12 @@ body:
       description: Who will maintain the port? Use GitHub usernames, and confirm each person has agreed.
     validations:
       required: true
+  - type: input
+    id: draft
+    attributes:
+      label: Draft repository
+      description: Link to a draft of the port, if you have started one. Leave it empty if you have not.
+      placeholder: https://github.com/you/your-port
   - type: textarea
     id: notes
     attributes:
