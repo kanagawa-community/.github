@@ -9,8 +9,10 @@ maintainers decide its installation, code, and release details.
 - Open port-specific fixes and documentation changes in the relevant port
   repository.
 - Every port must support Wave, Dragon, and Lotus.
-- Start from the [template repository](https://github.com/kanagawa-community/template). Keep screenshots,
-  swatches, palette examples, and runtime assets in the port repository.
+- Start from the [template repository](https://github.com/kanagawa-community/template). Keep screenshots
+  and runtime assets in the port repository.
+- Take colors from the shared [palette](../PALETTE.md) and follow the
+  [style guide](../STYLE-GUIDE.md) instead of sampling or guessing them.
 - Attribute a source project when the implementation is based on one. Do not
   imply upstream endorsement or official status.
 
