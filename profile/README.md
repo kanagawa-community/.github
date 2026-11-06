@@ -7,7 +7,11 @@
 <br clear="both">
 <br>
 
+<div align="center">
+
 **Jump to:** [Variants](#variants) · [Ports](#ports) · [Governance](https://github.com/kanagawa-community/.github/blob/main/.github/GOVERNANCE.md) · [Dictionary](https://github.com/kanagawa-community/.github/blob/main/DICTIONARY.md) · [Contribute](https://github.com/kanagawa-community/.github/blob/main/.github/CONTRIBUTING.md) · [Support](https://github.com/kanagawa-community/.github/blob/main/.github/SUPPORT.md)
+
+</div>
 
 This community is independent of the original project. It does not represent
 or replace the original maintainers.
