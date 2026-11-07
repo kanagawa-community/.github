@@ -32,6 +32,7 @@ A port is a Kanagawa implementation for one application. Every port supports all
 three variants and documents its installation and application-specific
 configuration.
 
+- [delta](https://github.com/kanagawa-community/delta)
 - [fish](https://github.com/kanagawa-community/fish)
 - [Neovim](https://github.com/kanagawa-community/neovim)
 
