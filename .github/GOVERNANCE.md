@@ -78,11 +78,19 @@ Organization maintainers complete this when a port is adopted. The
   workflows are present.
 - The port does not carry its own copies of the organization's health files,
   such as the Code of Conduct. The ones in this repository apply.
-- A baseline tag `0.1.0` exists. Automatic.
 - The shared ruleset and merge settings are applied. Automatic. See
   [rulesets](../rulesets/README.md).
 
 Run `scripts/adopt-port.sh <repository>` for a dry run, then add `--apply`.
+
+### Releases
+
+Maintainers release a port with `scripts/release.sh` in this repository. The
+script updates `CHANGELOG.md` and opens a pull request titled
+`chore(release): <version>`. Merging that pull request tags the merge commit and
+publishes the GitHub release, with the changelog section as its notes. A port's
+first release passes `--version`, such as `1.0.0`. Later releases take the next
+version from the conventional commits since the last tag.
 
 ### Migrating existing extras
 
