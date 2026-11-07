@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Check a port against the adoption checklist and, with --apply, finish its
-# adoption: default branch, description, topics, baseline tag, and the shared
-# ruleset. Organization maintainers run it after the repository has been
-# transferred into kanagawa-community.
+# adoption: default branch, description, topics, and the shared ruleset.
+# Organization maintainers run it after the repository has been transferred into
+# kanagawa-community.
 #
 # Usage: scripts/adopt-port.sh [--apply] [--app NAME] [--description TEXT] <repo>
 #
@@ -134,18 +134,6 @@ for name in CODE_OF_CONDUCT.md SUPPORT.md SECURITY.md; do
     fi
   done
 done
-
-# Baseline tag, so cocogitto has a starting point.
-tags="$(gh api "repos/$org/$repo/tags" --jq 'length')"
-if [[ "$tags" -gt 0 ]]; then
-  ok "tags exist"
-else
-  fix "create baseline tag 0.1.0 on $current"
-  if [[ "$apply" == true ]]; then
-    sha="$(gh api "repos/$org/$repo/commits/$current" --jq .sha)"
-    gh api --method POST "repos/$org/$repo/git/refs" -f ref=refs/tags/0.1.0 -f sha="$sha" --silent
-  fi
-fi
 
 # Ruleset and merge settings. The ruleset requires the commit and file checks,
 # so it is skipped until the workflows that report them exist.
