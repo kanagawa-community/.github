@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Prepare a release pull request for a port. It updates CHANGELOG.md for the new
-# version and opens a pull request titled "chore(release): <version>". When that
-# pull request is merged, the port's release workflow tags the merge commit and
-# publishes the GitHub release with the changelog section as its notes.
+# version and opens a pull request titled "chore(release): <version>", with a
+# commit signed by your own key. When that pull request is merged, the port's
+# release workflow tags the merge commit and publishes the GitHub release with the
+# changelog section as its notes.
 #
 # Usage: scripts/release.sh [--apply] [--version X.Y.Z] <repo>
 #
@@ -10,7 +11,7 @@
 # the latest tag, so the first release of a port needs --version. Without
 # --apply the script only shows the version and the new changelog section.
 #
-# Requires: gh, cog (cocogitto), npx, git, base64.
+# Requires: gh, cog (cocogitto), npx, and git with commit signing set up.
 set -euo pipefail
 
 org="kanagawa-community"
@@ -34,7 +35,7 @@ while [[ $# -gt 0 ]]; do
 done
 [[ -n "$repo" ]] || usage
 
-for tool in gh cog npx git base64; do
+for tool in gh cog npx git; do
   command -v "$tool" >/dev/null || { echo "$tool is required" >&2; exit 1; }
 done
 if [[ -n "$version" && ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
@@ -86,15 +87,13 @@ if [[ "$apply" != true ]]; then
   exit 0
 fi
 
-# The commit is made through the API, so GitHub signs it as verified.
+# Commit with your own signing key and push: the ruleset requires signed commits,
+# and commits made through the API with a personal token are not signed.
 release_branch="chore/release-$version"
-base_sha="$(gh api "repos/$org/$repo/commits/$branch" --jq .sha)"
-gh api --method POST "repos/$org/$repo/git/refs" \
-  -f ref="refs/heads/$release_branch" -f sha="$base_sha" --silent
-file_sha="$(gh api "repos/$org/$repo/contents/CHANGELOG.md?ref=$branch" --jq .sha 2>/dev/null || true)"
-args=(-f message="chore(release): $version" -f branch="$release_branch" -f content="$(base64 -w0 CHANGELOG.md)")
-[[ -n "$file_sha" ]] && args+=(-f sha="$file_sha")
-gh api --method PUT "repos/$org/$repo/contents/CHANGELOG.md" "${args[@]}" --silent
+git checkout -q -b "$release_branch"
+git add CHANGELOG.md
+git commit -q -S -m "chore(release): $version"
+git push -q origin "$release_branch"
 
 gh pr create --repo "$org/$repo" --base "$branch" --head "$release_branch" \
   --title "chore(release): $version" \
