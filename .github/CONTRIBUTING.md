@@ -11,8 +11,8 @@ maintainers decide its installation, code, and release details.
 - Every port must support Wave, Dragon, and Lotus.
 - Start from the [template repository](https://github.com/kanagawa-community/template). Keep screenshots
   and runtime assets in the port repository.
-- Take colors from the shared [palette](../PALETTE.md) and follow the
-  [style guide](../STYLE-GUIDE.md) instead of sampling or guessing them.
+- Take colors from the shared [palette](../docs/PALETTE.md) and follow the
+  [style guide](../docs/STYLE-GUIDE.md) instead of sampling or guessing them.
 - Attribute a source project when the implementation is based on one. Do not
   imply upstream endorsement or official status.
 
@@ -37,7 +37,7 @@ Use this repository for identity, guidance, and resources shared across ports.
 Open an issue here to propose changes to shared documentation or branding, or
 open a pull request with the change when you have it ready.
 
-Use the [dictionary](../DICTIONARY.md) terms in issues, pull requests, and
+Use the [dictionary](../docs/DICTIONARY.md) terms in issues, pull requests, and
 documentation.
 
 ### Changing a color
@@ -49,7 +49,7 @@ port. A color changes here first, and ports follow.
    why.
 2. Edit `palette.json`, keeping a color's `hex`, `rgb`, and `hsl` in step, then
    run `scripts/generate-palette.py` and commit the regenerated
-   [palette](../PALETTE.md), [style guide](../STYLE-GUIDE.md), and swatches. The
+   [palette](../docs/PALETTE.md), [style guide](../docs/STYLE-GUIDE.md), and swatches. The
    `check-palette` workflow fails when they are out of date.
 3. Once the change is merged, each port updates to match. The port's
    maintainers decide when.

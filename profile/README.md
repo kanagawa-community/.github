@@ -9,7 +9,7 @@
 
 <div align="center">
 
-**Jump to:** [Variants](#variants) · [Ports](#ports) · [Governance](https://github.com/kanagawa-community/.github/blob/main/.github/GOVERNANCE.md) · [Dictionary](https://github.com/kanagawa-community/.github/blob/main/DICTIONARY.md) · [Contribute](https://github.com/kanagawa-community/.github/blob/main/.github/CONTRIBUTING.md) · [Support](https://github.com/kanagawa-community/.github/blob/main/.github/SUPPORT.md)
+**Jump to:** [Variants](#variants) · [Ports](#ports) · [Governance](https://github.com/kanagawa-community/.github/blob/main/.github/GOVERNANCE.md) · [Dictionary](https://github.com/kanagawa-community/.github/blob/main/docs/DICTIONARY.md) · [Contribute](https://github.com/kanagawa-community/.github/blob/main/.github/CONTRIBUTING.md) · [Support](https://github.com/kanagawa-community/.github/blob/main/.github/SUPPORT.md)
 
 </div>
 
@@ -22,8 +22,8 @@ or replace the original maintainers.
 - 🐉 Dragon (`dragon`): a darker variant for late-night sessions.
 - 🪷 Lotus (`lotus`): the light variant.
 
-The [palette](https://github.com/kanagawa-community/.github/blob/main/PALETTE.md)
-and [style guide](https://github.com/kanagawa-community/.github/blob/main/STYLE-GUIDE.md)
+The [palette](https://github.com/kanagawa-community/.github/blob/main/docs/PALETTE.md)
+and [style guide](https://github.com/kanagawa-community/.github/blob/main/docs/STYLE-GUIDE.md)
 give every color of each variant and the role it plays.
 
 ## Ports

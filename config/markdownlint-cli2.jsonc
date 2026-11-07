@@ -11,6 +11,8 @@
     // READMEs open with the logo, not a heading.
     "MD041": false,
     // Match the table layout Prettier produces.
-    "MD060": { "style": "aligned" },
+    "MD060": {
+      "style": "aligned",
+    },
   },
 }

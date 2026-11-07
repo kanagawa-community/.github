@@ -13,7 +13,7 @@
 <!-- Delete this section for pull requests that are not about a port. -->
 
 - [ ] Wave, Dragon, and Lotus are all supported.
-- [ ] Colors come from the [palette](https://github.com/kanagawa-community/.github/blob/main/PALETTE.md) and follow the [style guide](https://github.com/kanagawa-community/.github/blob/main/STYLE-GUIDE.md), not values sampled from screenshots.
+- [ ] Colors come from the [palette](https://github.com/kanagawa-community/.github/blob/main/docs/PALETTE.md) and follow the [style guide](https://github.com/kanagawa-community/.github/blob/main/docs/STYLE-GUIDE.md), not values sampled from screenshots.
 - [ ] Any source project is credited and its license is kept, without implying upstream endorsement or official status.
 
 ### Shared resources

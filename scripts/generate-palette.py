@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Generate the palette swatches, PALETTE.md, and STYLE-GUIDE.md from palette.json.
+"""Generate the palette swatches, docs/PALETTE.md, and docs/STYLE-GUIDE.md from palette.json.
 
 palette.json is the source of truth. This script writes one SVG per color of
-each variant to assets/palette/<variant>/<name>.svg and rewrites PALETTE.md and STYLE-GUIDE.md.
+each variant to assets/palette/<variant>/<name>.svg and rewrites docs/PALETTE.md and docs/STYLE-GUIDE.md.
 
 Usage: scripts/generate-palette.py [--check]
 
@@ -105,7 +105,7 @@ def style_guide(data):
             cells = f"<td><code>{k}</code></td><td>{roles[k]}</td>"
             for v in by_role:
                 n = by_role[v][k]
-                cells += f'<td width="48" align="center"><img src="assets/palette/{v}/{n}.svg" alt="" width="32" height="32"></td><td>{n}</td>'
+                cells += f'<td width="48" align="center"><img src="../assets/palette/{v}/{n}.svg" alt="" width="32" height="32"></td><td>{n}</td>'
             t.append(f"    <tr>{cells}</tr>")
         t += ["  </tbody>", "</table>"]
         md += ["\n".join(t), ""]
@@ -130,11 +130,11 @@ def build(data):
         "# Kanagawa palette",
         "",
         "Every color a port needs, for each variant. Use these values instead of",
-        "sampling screenshots or guessing from an existing port. [palette.json](palette.json)",
+        "sampling screenshots or guessing from an existing port. [palette.json](../palette.json)",
         "is the source of truth for every port, including the Neovim plugin: a color",
         "changes there first, and ports follow. This page and the swatches in",
-        "[assets/palette](assets/palette/) are generated from it by",
-        "[scripts/generate-palette.py](scripts/generate-palette.py).",
+        "[assets/palette](../assets/palette/) are generated from it by",
+        "[scripts/generate-palette.py](../scripts/generate-palette.py).",
         "",
         "Each color lists the roles it plays in its variant. A role keeps its meaning",
         "across variants (`syn.string` is the string color in Wave, Dragon, and Lotus)",
@@ -159,7 +159,7 @@ def build(data):
             h, s, l = c["hsl"]
             rows.append(
                 [
-                    f'<img src="assets/palette/{v}/{name}.svg" alt="" width="40" height="40">',
+                    f'<img src="../assets/palette/{v}/{name}.svg" alt="" width="40" height="40">',
                     name,
                     f"`{c['hex'].upper()}`",
                     f"`{r}, {g}, {b}`",
@@ -182,8 +182,8 @@ def build(data):
         "under its MIT license; see [assets/LICENSE](assets/LICENSE).",
         "",
     ]
-    files["PALETTE.md"] = "\n".join(md)
-    files["STYLE-GUIDE.md"] = style_guide(data)
+    files["docs/PALETTE.md"] = "\n".join(md)
+    files["docs/STYLE-GUIDE.md"] = style_guide(data)
     return files
 
 

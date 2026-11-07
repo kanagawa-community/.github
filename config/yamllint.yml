@@ -1,3 +1,4 @@
+---
 # Shared yamllint configuration. A port with its own .yamllint file uses that
 # instead.
 extends: default
