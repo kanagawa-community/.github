@@ -1,0 +1,31 @@
+#:schema https://raw.githubusercontent.com/pamburus/termframe/v0.10.0/schema/json/config.schema.json
+
+# Shared termframe style for the preview images of terminal-based ports. A port's
+# render script sets the theme, mode, title, size and output for each image. See
+# docs/PREVIEWS.md.
+
+[env]
+TERM = "xterm-256color"
+COLORTERM = "truecolor"
+
+[font]
+# A single family: with a longer list termframe measures the wrong font and the
+# characters drift apart.
+family = ["FiraCode Nerd Font"]
+size = 16
+weights = { normal = "normal", bold = "bold", faint = "normal" }
+
+[padding]
+horizontal = 1.5
+vertical = 1.5
+
+[window]
+enabled = true
+shadow = true
+style = "macos"
+
+[rendering]
+line-height = 1.4
+bold-is-bright = false
+builtin-glyphs = true
+faint-opacity = 0.5
