@@ -6,7 +6,8 @@
 # Usage: scripts/social-preview.sh <name> <showcase.png> <output.png>
 #   <name> is the application name as it should read, such as "fish" or "Neovim".
 #
-# The image is 1280x640, GitHub's recommended size. Upload it by hand under
+# The image is 1280x640, GitHub's recommended size. Everything stays inside the
+# 80px border GitHub may crop (40pt on each side). Upload it by hand under
 # Settings > General > Social preview in the port's repository.
 #
 # Requires: rsvg-convert, magick (ImageMagick), python3.
@@ -44,13 +45,13 @@ def data_uri(path):
 
 print(f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="640" viewBox="0 0 1280 640">
   <rect width="1280" height="640" fill="{bg}"/>
-  <image href="{data_uri(logo)}" x="70" y="80" width="170" height="170"/>
+  <image href="{data_uri(logo)}" x="80" y="80" width="160" height="160"/>
   <g font-family="FiraCode Nerd Font" font-weight="bold" font-size="60">
-    <text x="70" y="340" fill="{fg}">Kanagawa</text>
-    <text x="70" y="410" fill="{accent}">for {escape(name)}</text>
+    <text x="80" y="340" fill="{fg}">Kanagawa</text>
+    <text x="80" y="410" fill="{accent}">for {escape(name)}</text>
   </g>
-  <text x="70" y="470" font-family="FiraCode Nerd Font" font-size="26" fill="{muted}">Wave · Dragon · Lotus</text>
-  <image href="{data_uri(showcase)}" x="490" y="43" width="760" height="554"/>
+  <text x="80" y="470" font-family="FiraCode Nerd Font" font-size="26" fill="{muted}">Wave · Dragon · Lotus</text>
+  <image href="{data_uri(showcase)}" x="520" y="80" width="680" height="480"/>
 </svg>''')
 PY
 
