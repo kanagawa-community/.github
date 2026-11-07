@@ -103,8 +103,9 @@ Maintainers release a port with `scripts/release.sh` in this repository. The
 script updates `CHANGELOG.md` and opens a pull request titled
 `chore(release): <version>`. Merging that pull request tags the merge commit and
 publishes the GitHub release, with the changelog section as its notes. A port's
-first release passes `--version`, such as `1.0.0`. Later releases take the next
-version from the conventional commits since the last tag.
+first release is `1.0.0`: a port is complete when it is first released, and
+later fixes cover what was missed. Later releases take the next version from the
+conventional commits since the last tag. `--version` overrides either.
 
 ### Migrating existing extras
 
