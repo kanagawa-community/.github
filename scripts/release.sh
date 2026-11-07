@@ -70,12 +70,28 @@ if git rev-parse -q --verify "refs/tags/$version" >/dev/null; then
 fi
 echo "version: $version"
 
+# Link each commit author to their GitHub profile. The changelog template maps a
+# git author name to a username, so build that map from the commits being
+# released and use it for this run only.
+latest="$(git describe --tags --abbrev=0 2>/dev/null || true)"
+declare -A seen
+authors=""
+while IFS='|' read -r name sha; do
+  [[ -z "$name" || -n "${seen[$name]:-}" ]] && continue
+  seen[$name]=1
+  login="$(gh api "repos/$org/$repo/commits/$sha" --jq '.author.login // empty' 2>/dev/null || true)"
+  [[ -n "$login" ]] && authors+="{ signature = \"${name//\"/\\\"}\", username = \"$login\" }, "
+done < <(git log --format='%an|%H' ${latest:+"$latest..HEAD"})
+sed -i "s|^authors = .*|authors = [${authors%, }]|" cog.toml
+
 # Tag locally so cog includes the new version in the changelog. The tag is never
 # pushed: the release workflow creates it when the pull request is merged.
 git -c tag.gpgSign=false tag "$version"
 {
   printf '# Changelog\n\n'
-  cog changelog | sed 's/^#### /### /'
+  # Escape angle brackets so a commit message such as kanagawa@<variant> is not
+  # taken for an HTML tag.
+  cog changelog | sed -e 's/^#### /### /' -e 's/</\&lt;/g'
 } >CHANGELOG.md
 npx --yes prettier@3.9.10 --write CHANGELOG.md >/dev/null
 
