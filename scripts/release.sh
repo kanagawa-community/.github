@@ -8,8 +8,8 @@
 # Usage: scripts/release.sh [--apply] [--version X.Y.Z] <repo>
 #
 # Without --version the next version comes from the conventional commits since
-# the latest tag, so the first release of a port needs --version. Without
-# --apply the script only shows the version and the new changelog section.
+# the latest tag. A port's first release is 1.0.0: a port is complete when it is
+# first released. Without --apply the script only shows the version and the new changelog section.
 #
 # Requires: gh, cog (cocogitto), npx, and git with commit signing set up.
 set -euo pipefail
@@ -51,11 +51,9 @@ branch="$(gh api "repos/$org/$repo" --jq .default_branch)"
 git clone --quiet --branch "$branch" "https://github.com/$org/$repo.git" "$work/repo"
 cd "$work/repo"
 
-if [[ -z "$version" ]]; then
-  if [[ -z "$(git tag --list)" ]]; then
-    echo "no tags yet: pass --version for the first release" >&2
-    exit 1
-  fi
+if [[ -z "$version" && -z "$(git tag --list)" ]]; then
+  version="1.0.0"
+elif [[ -z "$version" ]]; then
   out="$(cog bump --auto --dry-run 2>&1)" || { echo "$out" >&2; exit 1; }
   version="$(printf '%s\n' "$out" | grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+$' | head -n1 || true)"
   if [[ -z "$version" ]]; then
