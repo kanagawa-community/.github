@@ -10,7 +10,7 @@ repository.
 The palette is the exception. [palette.json](../palette.json) defines the colors
 of every variant, and the swatches in `palette/<variant>/<name>.svg` are generated
 from it by [scripts/generate-palette.py](../scripts/generate-palette.py). Do not
-edit the swatches by hand. See [PALETTE.md](../PALETTE.md) for the roles and values.
+edit the swatches by hand. See [PALETTE.md](../docs/PALETTE.md) for the roles and values.
 
 Use absolute raw GitHub URLs when referencing shared assets from other
 repositories:

@@ -13,7 +13,7 @@ to archive.
   reports under the [Code of Conduct](CODE_OF_CONDUCT.md).
 - **Port maintainers** are responsible for one port repository. They triage
   issues, review changes, publish releases, and keep the port aligned with the
-  [dictionary](../DICTIONARY.md) and the [template repository](https://github.com/kanagawa-community/template).
+  [dictionary](../docs/DICTIONARY.md) and the [template repository](https://github.com/kanagawa-community/template).
 - **Contributors** are anyone who opens an issue, sends a pull request, or helps
   in discussion. Contributions are welcome in any form.
 
@@ -72,8 +72,8 @@ Organization maintainers complete this when a port is adopted. The
 - The topics include `kanagawa`, `theme`, and the repository name. Automatic.
 - `README.md` follows the template, has no `{{placeholders}}` left, previews
   Wave, Dragon, and Lotus, and keeps screenshots under `assets/`.
-- The theme's colors come from the shared [palette](../PALETTE.md) and follow the
-  [style guide](../STYLE-GUIDE.md), with no values sampled from screenshots.
+- The theme's colors come from the shared [palette](../docs/PALETTE.md) and follow the
+  [style guide](../docs/STYLE-GUIDE.md), with no values sampled from screenshots.
 - `LICENSE`, `cog.toml`, and the `commits.yml`, `files.yml`, and `assign.yml`
   workflows are present.
 - The port does not carry its own copies of the organization's health files,

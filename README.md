@@ -7,10 +7,10 @@ community rooted in the original
 
 - [Organization profile](profile/README.md)
 - [Governance](.github/GOVERNANCE.md) - roles, decisions, and the port lifecycle
-- [Dictionary](DICTIONARY.md) - shared terminology for documentation and discussions
-- [Palette](PALETTE.md) - the colors of Wave, Dragon, and Lotus by role, as [JSON](palette.json) and swatches
-- [Style guide](STYLE-GUIDE.md) - which palette color to use for each role in each variant
-- [Preview images](PREVIEWS.md) - how shell ports render one static image per variant
+- [Dictionary](docs/DICTIONARY.md) - shared terminology for documentation and discussions
+- [Palette](docs/PALETTE.md) - the colors of Wave, Dragon, and Lotus by role, as [JSON](palette.json) and swatches
+- [Style guide](docs/STYLE-GUIDE.md) - which palette color to use for each role in each variant
+- [Preview images](docs/PREVIEWS.md) - how shell ports render one static image per variant
 - [Brand asset guidance and attribution](assets/README.md)
 - [Template repository](https://github.com/kanagawa-community/template) - starting point for a new port: README, license, cocogitto config, and workflows
 - [Contributing](.github/CONTRIBUTING.md) - guidance for port and shared-repository contributions, including how to propose a port

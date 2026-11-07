@@ -58,7 +58,7 @@ or `lotus`) as the host, the full path with no shortening, then a newline and
 ### Colors
 
 Give termframe a theme built from the variant's roles in
-[palette.json](palette.json):
+[palette.json](../palette.json):
 
 - `ui.bg` as the background and `ui.fg` as the foreground.
 - The `term.*` roles as the 16 terminal colors, so `eza` and the color row match
