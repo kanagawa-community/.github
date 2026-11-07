@@ -2,7 +2,8 @@
 # Stack the three variant renders of a port into one showcase image: Lotus at the
 # back, Dragon in the middle and Wave in front. Each window sits a fifth of its
 # width to the right and a quarter of its height below the one behind it, on a
-# transparent background. See docs/PREVIEWS.md.
+# transparent background. The output has no timestamp, so the same inputs always
+# give the same file. See docs/PREVIEWS.md.
 #
 # Usage: scripts/compose-showcase.sh <lotus.png> <dragon.png> <wave.png> <output.png>
 #
@@ -39,4 +40,5 @@ magick -size "$((w + 2 * dx))x$((h + 2 * dy))" xc:none \
   "$lotus" -geometry +0+0 -composite \
   "$dragon" -geometry "+${dx}+${dy}" -composite \
   "$wave" -geometry "+$((2 * dx))+$((2 * dy))" -composite \
+  -strip -define png:exclude-chunk=tIME \
   "$output"
