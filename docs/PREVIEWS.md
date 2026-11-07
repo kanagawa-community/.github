@@ -8,14 +8,36 @@ Ports for other applications take real screenshots instead. Follow the
 [template](https://github.com/kanagawa-community/template) guidance and use
 comparable content in each variant.
 
+## Rendering terminal previews
+
+Terminal ports, shells and other command-line tools, render their images with
+[scripts/render-previews.sh](../scripts/render-previews.sh). Run it from the port's
+directory. It needs no checkout of this repository, and fetches what it needs:
+
+```sh
+bash <(curl -fsSL https://raw.githubusercontent.com/kanagawa-community/.github/main/scripts/render-previews.sh)
+```
+
+With a checkout next to the port, `scripts/render-previews.sh ../fish` does the
+same from here.
+
+The port commits only `scripts/preview.sh`, which the script sources. It sets
+`name` (the application name as it should read) and a `capture` function that
+writes the colored output of one variant to a file. Optional `setup` and
+`cleanup` functions run once before the first capture and on exit. Everything
+after the capture is shared: [termframe](https://github.com/pamburus/termframe)
+(MIT) renders each capture to SVG with the settings below, `rsvg-convert` turns it
+into `assets/screenshots/<variant>.png`, and the showcase and social preview are
+built from the three images. Do not copy any of this into a port. See
+[fish](https://github.com/kanagawa-community/fish/blob/main/scripts/preview.sh)
+and [delta](https://github.com/kanagawa-community/delta/blob/main/scripts/preview.sh)
+for examples.
+
 ## Shell previews
 
-Run the shell in a headless [tmux](https://github.com/tmux/tmux) pane with the
-variant's theme applied, type the session below, capture the pane with
-`tmux capture-pane -p -e`, and render the capture with
-[termframe](https://github.com/pamburus/termframe) (MIT) to SVG, then convert it
-to `assets/screenshots/<variant>.png` with `rsvg-convert`. Commit the script that does this, so a color
-change is one command.
+A shell's `capture` runs the shell in a headless [tmux](https://github.com/tmux/tmux)
+pane with the variant's theme applied, types the session below, and captures the
+pane with `tmux capture-pane -p -e`.
 
 ### The session
 
@@ -57,8 +79,9 @@ or `lotus`) as the host, the full path with no shortening, then a newline and
 
 ### Colors
 
-Give termframe a theme built from the variant's roles in
-[palette.json](../palette.json):
+termframe gets a theme built from the variant's roles in
+[palette.json](../palette.json) by
+[scripts/termframe-theme.py](../scripts/termframe-theme.py):
 
 - `ui.bg` as the background and `ui.fg` as the foreground.
 - The `term.*` roles as the 16 terminal colors, so `eza` and the color row match
@@ -70,16 +93,14 @@ used here.)
 
 ### Render settings
 
-Render with the shared
+Rendering uses the shared
 [termframe config](../config/termframe.toml), which sets the font, padding, line
-height and the window: a macOS-style frame with a border and a shadow. Fetch it
-by its raw URL, like `palette.json`, so a style change reaches every port:
+height and the window: a macOS-style frame with a border and a shadow. The config
+has no `[[fonts]]` entry, because font files live in different places on every
+machine, so the render script adds one for the installed font with `fc-match`.
+Without it termframe measures generic metrics and the glyphs drift apart.
 
-```text
-https://raw.githubusercontent.com/kanagawa-community/.github/main/config/termframe.toml
-```
-
-Pass only what changes per image:
+Only what changes per image is passed:
 
 | Setting        | Value                                  |
 | -------------- | -------------------------------------- |
@@ -114,6 +135,11 @@ result at the top of the README's Previews section, above the three images in
 their collapsible sections. Keep the three images in `assets/screenshots/`.
 
 ## Social preview
+
+Ports do not run the two steps above by hand. `scripts/finish-previews.sh <name> <port-dir>`
+builds `assets/showcase.png` and `assets/social-preview.png` from the three images in
+`assets/screenshots/`. `render-previews.sh` ends by calling it. Ports with real
+screenshots run it themselves after replacing the three images.
 
 GitHub shows a repository's social preview when its link is shared. Every port
 uses the same one: the logo, "Kanagawa for <name>", the variant names, and the
