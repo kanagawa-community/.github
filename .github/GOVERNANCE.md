@@ -74,7 +74,8 @@ Organization maintainers complete this when a port is adopted. The
   Wave, Dragon, and Lotus, and keeps screenshots under `assets/`.
 - The template's placeholder preview images are replaced, both the showcase and
   the three variant images. The script flags any that are unchanged.
-- The social preview is rendered with `scripts/social-preview.sh`, committed as
+- The social preview is rendered with `scripts/render-previews.sh` (terminal
+  ports) or `scripts/finish-previews.sh`, committed as
   `assets/social-preview.png`, and uploaded in the repository settings. Manual:
   the script reports whether an image is uploaded.
 - The theme's colors come from the shared [palette](../docs/PALETTE.md) and follow the
@@ -87,6 +88,14 @@ Organization maintainers complete this when a port is adopted. The
   [rulesets](../rulesets/README.md).
 
 Run `scripts/adopt-port.sh <repository>` for a dry run, then add `--apply`.
+
+Apply it as early as possible: as soon as the template scaffold, with its
+`commits.yml` and `files.yml` workflows, is on `main`. The ruleset needs only
+those workflows, and the script reports the other items without blocking on
+them. The port's content then arrives through pull requests that the ruleset
+already protects. For a new repository in the organization, push the scaffold
+commit to `main`, run the script with `--apply`, then open the content pull
+request. Run it again once the content is merged to confirm the remaining items.
 
 ### Releases
 
