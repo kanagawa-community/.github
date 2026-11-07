@@ -32,6 +32,7 @@ A port is a Kanagawa implementation for one application. Every port supports all
 three variants and documents its installation and application-specific
 configuration.
 
+- [fish](https://github.com/kanagawa-community/fish)
 - [Neovim](https://github.com/kanagawa-community/neovim)
 
 ### Moving to their own repositories
@@ -41,9 +42,9 @@ repository's `extras` folder, one repository per application. Each will be
 adopted under the [governance lifecycle](https://github.com/kanagawa-community/.github/blob/main/.github/GOVERNANCE.md)
 before it is listed above.
 
-Alacritty · Aerc · Alfred · Awesome · Base16 · Broot · Emacs · Fish · Foot ·
-Ghostty · Gogh · Helix · Hyprland · iTerm · Kitty · Micro · Mintty · Ptyxis ·
-Pywal · Sway · tmTheme · WezTerm · Windows Terminal · Wofi · Xresources · Zathura
+Alacritty · Aerc · Alfred · Awesome · Base16 · Broot · Emacs · Foot · Ghostty ·
+Gogh · Helix · Hyprland · iTerm · Kitty · Micro · Mintty · Ptyxis · Pywal ·
+Sway · tmTheme · WezTerm · Windows Terminal · Wofi · Xresources · Zathura
 
 To request a port for your application, open a
 [port request](https://github.com/kanagawa-community/.github/issues/new?template=port-request.yml).
