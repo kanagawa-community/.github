@@ -74,6 +74,8 @@ Organization maintainers complete this when a port is adopted. The
   Wave, Dragon, and Lotus, and keeps screenshots under `assets/`.
 - The template's placeholder preview images are replaced, both the showcase and
   the three variant images. The script flags any that are unchanged.
+- The social preview is rendered with `scripts/social-preview.sh`, committed as
+  `assets/social-preview.png`, and uploaded in the repository settings. Manual.
 - The theme's colors come from the shared [palette](../docs/PALETTE.md) and follow the
   [style guide](../docs/STYLE-GUIDE.md), with no values sampled from screenshots.
 - `LICENSE`, `cog.toml`, and the `commits.yml`, `files.yml`, and `assign.yml`

@@ -112,3 +112,20 @@ compose-showcase.sh assets/screenshots/lotus.png assets/screenshots/dragon.png \
 The script needs ImageMagick, and the three images must be the same size. Show the
 result at the top of the README's Previews section, above the three images in
 their collapsible sections. Keep the three images in `assets/screenshots/`.
+
+## Social preview
+
+GitHub shows a repository's social preview when its link is shared. Every port
+uses the same one: the logo, "Kanagawa for <name>", the variant names, and the
+showcase image, on the Wave background. Render it from the `.github` repository:
+
+```sh
+scripts/social-preview.sh fish ../fish/assets/showcase.png ../fish/assets/social-preview.png
+```
+
+The script takes the name as it should read (`fish`, `Neovim`, `Windows Terminal`),
+the port's showcase image, and the output file. It produces a 1280x640 PNG, which is
+GitHub's recommended size and well under its 1 MB limit, and it needs `rsvg-convert`,
+ImageMagick, and Python. Commit the result as `assets/social-preview.png`, then
+upload it by hand under Settings > General > Social preview in the port's
+repository.
