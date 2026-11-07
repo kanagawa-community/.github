@@ -126,6 +126,22 @@ for path in README.md LICENSE cog.toml; do
   fi
 done
 
+# Preview images copied from the template and never replaced. The template's own
+# images are the reference, so this keeps working if they change.
+if [[ "$repo" != "template" ]]; then
+  for path in assets/showcase.png assets/screenshots/wave.png assets/screenshots/dragon.png assets/screenshots/lotus.png; do
+    mine="$(gh api "repos/$org/$repo/contents/$path" --jq .sha 2>/dev/null || true)"
+    [[ -n "$mine" ]] || continue
+    theirs="$(gh api "repos/$org/template/contents/$path" --jq .sha 2>/dev/null || true)"
+    [[ -n "$theirs" ]] || continue
+    if [[ "$mine" == "$theirs" ]]; then
+      todo "$path is still the template placeholder"
+    else
+      ok "$path is not the template placeholder"
+    fi
+  done
+fi
+
 # Health files come from the organization .github repository.
 for name in CODE_OF_CONDUCT.md SUPPORT.md SECURITY.md; do
   for path in "$name" ".github/$name"; do
