@@ -142,6 +142,15 @@ if [[ "$repo" != "template" ]]; then
   done
 fi
 
+# Social preview. GitHub has no API to upload it, so a maintainer does that in the
+# repository settings; this only reports whether a custom image is in place.
+custom="$(gh api graphql -f query='query($o: String!, $n: String!) { repository(owner: $o, name: $n) { usesCustomOpenGraphImage } }' -f o="$org" -f n="$repo" --jq .data.repository.usesCustomOpenGraphImage 2>/dev/null || true)"
+case "$custom" in
+  true) ok "custom social preview is uploaded" ;;
+  false) todo "social preview not uploaded (Settings > General > Social preview, image from scripts/social-preview.sh)" ;;
+  *) warn "could not read whether a social preview is uploaded" ;;
+esac
+
 # Health files come from the organization .github repository.
 for name in CODE_OF_CONDUCT.md SUPPORT.md SECURITY.md; do
   for path in "$name" ".github/$name"; do
