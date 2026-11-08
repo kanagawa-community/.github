@@ -2,6 +2,9 @@
 // configuration file uses that instead.
 {
   "gitignore": true,
+  // CHANGELOG.md is generated from commit messages, so its repeated headings and
+  // the markup in old commits are not ours to fix.
+  "ignores": ["CHANGELOG.md"],
   "config": {
     "default": true,
     // Prose is wrapped by hand, and tables and URLs run long.
