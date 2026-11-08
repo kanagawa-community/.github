@@ -40,13 +40,18 @@ colors = json.load(open(palette))["variants"]["wave"]["colors"]
 role = {use: c["hex"] for c in colors.values() for use in c["usage"]}
 bg, fg, accent, muted = role["ui.bg"], role["ui.fg"], role["syn.fun"], role["syn.comment"]
 
+# Title lines in FiraCode, whose glyphs advance 0.6 em. Long names shrink so the wider
+# line ends by x=480, clear of the showcase image at x=520.
+chars = max(len("Kanagawa"), len("for " + name))
+title_size = min(60, int(400 / (0.6 * chars)))
+
 def data_uri(path):
     return "data:image/png;base64," + base64.b64encode(open(path, "rb").read()).decode()
 
 print(f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="640" viewBox="0 0 1280 640">
   <rect width="1280" height="640" fill="{bg}"/>
   <image href="{data_uri(logo)}" x="80" y="80" width="160" height="160"/>
-  <g font-family="FiraCode Nerd Font" font-weight="bold" font-size="60">
+  <g font-family="FiraCode Nerd Font" font-weight="bold" font-size="{title_size}">
     <text x="80" y="340" fill="{fg}">Kanagawa</text>
     <text x="80" y="410" fill="{accent}">for {escape(name)}</text>
   </g>
