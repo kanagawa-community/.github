@@ -35,6 +35,7 @@ configuration.
 - [bat](https://github.com/kanagawa-community/bat)
 - [delta](https://github.com/kanagawa-community/delta)
 - [fish](https://github.com/kanagawa-community/fish)
+- [fzf](https://github.com/kanagawa-community/fzf)
 - [Neovim](https://github.com/kanagawa-community/neovim)
 
 ### Moving to their own repositories
