@@ -37,7 +37,7 @@ documentation, workflows, scripts, and configuration. Two parts differ:
 
 - The [Code of Conduct](.github/CODE_OF_CONDUCT.md) is adapted from the Contributor
   Covenant and stays under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-- The logo in `assets/branding/` keeps the upstream MIT notice described in
+- The palette swatches in `assets/` keep the upstream MIT notice described in
   [assets/README.md](assets/README.md).
 
 ## Repository boundaries
