@@ -51,6 +51,7 @@ configuration.
 - [Cursors](https://github.com/kanagawa-community/cursors)
 - [Icons](https://github.com/kanagawa-community/icons)
 - [KDE Plasma](https://github.com/kanagawa-community/kde)
+- [SilentSDDM](https://github.com/kanagawa-community/silent-sddm)
 
 </details>
 <details open>
