@@ -35,7 +35,22 @@ configuration.
 <details open>
 <summary>👾 Code Editors & IDEs</summary>
 
+- [Kate](https://github.com/kanagawa-community/kate)
 - [Neovim](https://github.com/kanagawa-community/neovim)
+
+</details>
+<details open>
+<summary>💻 Terminals</summary>
+
+- [Konsole](https://github.com/kanagawa-community/konsole)
+
+</details>
+<details open>
+<summary>🖥️ Desktop</summary>
+
+- [Cursors](https://github.com/kanagawa-community/cursors)
+- [Icons](https://github.com/kanagawa-community/icons)
+- [KDE Plasma](https://github.com/kanagawa-community/kde)
 
 </details>
 <details open>
