@@ -1,4 +1,4 @@
-<img align="left" src="https://raw.githubusercontent.com/kanagawa-community/.github/main/assets/branding/logo-squircle.png" alt="Kanagawa logo" width="200">
+<img align="left" src="https://raw.githubusercontent.com/kanagawa-community/.github/main/assets/branding/logo.png" alt="Kanagawa logo" width="200">
 
 <h3>Kanagawa community</h3>
 <p>Community-maintained themes inspired by Hokusai's <em>The Great Wave off Kanagawa</em>.</p>
