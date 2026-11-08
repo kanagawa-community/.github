@@ -23,7 +23,7 @@ Keep published paths stable. Runtime assets belong in their port repositories.
 
 ## Branding files
 
-- `branding/logo-squircle.png`: the community logo, 3000x3000 with transparent
+- `branding/logo-squircle.png`: the community logo, 800x800 with transparent
   squircle corners. Use it in READMEs.
 - `branding/avatar.jpg`: the same logo as a 1024x1024 square under 1 MB, for the
   organization avatar.
