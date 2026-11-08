@@ -150,7 +150,8 @@ scripts/social-preview.sh fish ../fish/assets/showcase.png ../fish/assets/social
 ```
 
 The script takes the name as it should read (`fish`, `Neovim`, `Windows Terminal`),
-the port's showcase image, and the output file. It produces a 1280x640 PNG, which is
+the port's showcase image, and the output file. Long names are set smaller so the title
+stays clear of the showcase. It produces a 1280x640 PNG, which is
 GitHub's recommended size and well under its 1 MB limit, and it needs `rsvg-convert`,
 ImageMagick, and Python. Commit the result as `assets/social-preview.png`, then
 upload it by hand under Settings > General > Social preview in the port's
