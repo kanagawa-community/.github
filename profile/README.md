@@ -32,12 +32,22 @@ A port is a Kanagawa implementation for one application. Every port supports all
 three variants and documents its installation and application-specific
 configuration.
 
+<details open>
+<summary>👾 Code Editors & IDEs</summary>
+
+- [Neovim](https://github.com/kanagawa-community/neovim)
+
+</details>
+<details open>
+<summary>🐚 CLI Tools</summary>
+
 - [bat](https://github.com/kanagawa-community/bat)
-- [delta](https://github.com/kanagawa-community/delta)
 - [btop](https://github.com/kanagawa-community/btop)
+- [delta](https://github.com/kanagawa-community/delta)
 - [fish](https://github.com/kanagawa-community/fish)
 - [fzf](https://github.com/kanagawa-community/fzf)
-- [Neovim](https://github.com/kanagawa-community/neovim)
+
+</details>
 
 ### Moving to their own repositories
 
