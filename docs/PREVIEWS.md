@@ -4,9 +4,11 @@ Every port shows all three variants. Shell ports do it with one static image per
 variant, rendered from a real session of the shell, so the colors in the picture
 are the ones the theme produces and the three images stay comparable.
 
-Ports for other applications take real screenshots instead. Follow the
-[template](https://github.com/kanagawa-community/template) guidance and use
-comparable content in each variant.
+Ports for other applications take screenshots of real windows instead. Take
+them with [scripts/capture-windows.sh](../scripts/capture-windows.sh), so that
+every port gets the same frame and anyone can make the images again. See
+[Capturing application windows](#capturing-application-windows). Use comparable
+content in each variant.
 
 ## Rendering terminal previews
 
@@ -134,12 +136,78 @@ The script needs ImageMagick, and the three images must be the same size. Show t
 result at the top of the README's Previews section, above the three images in
 their collapsible sections. Keep the three images in `assets/screenshots/`.
 
+## Capturing application windows
+
+Ports for terminals, editors, viewers, launchers and window managers take their
+images from real windows with
+[scripts/capture-windows.sh](../scripts/capture-windows.sh). Run it from the
+port's directory. It needs no checkout of this repository:
+
+```sh
+bash <(curl -fsSL https://raw.githubusercontent.com/kanagawa-community/.github/main/scripts/capture-windows.sh)
+```
+
+With a checkout next to the port, `scripts/capture-windows.sh ../kitty` does the
+same from here.
+
+The script starts a headless [sway](https://swaywm.org/) for each variant, so no
+window opens on your screen. A Wayland application runs in sway, and
+[grim](https://sr.ht/~emersion/grim/) captures it. An X11 application runs in a
+rootful Xwayland inside sway, and ImageMagick captures it. Then
+[scripts/frame-window.sh](../scripts/frame-window.sh) draws the window frame, in
+the same style as the terminal previews: a title bar with the port name, rounded
+corners, a thin edge and a shadow. `finish-previews.sh` then builds the showcase
+and the social preview.
+
+The port commits only `scripts/window.sh`, which the script sources. The comment
+at the top of `capture-windows.sh` lists everything that the hook can set. In
+short:
+
+| Setting or function | What it does                                                                                       |
+| ------------------- | -------------------------------------------------------------------------------------------------- |
+| `name`              | The application name as it should read. The frame title and the social preview use it.             |
+| `launch <variant>`  | Prints the command that starts the window with that variant's theme.                               |
+| `x11=yes`           | Runs the command in Xwayland, for an X11 application.                                              |
+| `frame`             | `bar` (default), `plain` for a window that draws its own title bar, or `none` for a whole desktop. |
+| `size`              | `WIDTHxHEIGHT`. The default, `listing`, fits a terminal that runs the shared session.              |
+| `wait`              | The seconds to wait before the capture, when the window starts slowly.                             |
+| `setup`, `cleanup`  | Run once, before the first and after the last capture.                                             |
+| `capture`           | Replaces the whole capture, for a port that needs more than one window.                            |
+
+A terminal shows the same session as a shell port (steps 1 and 3 of
+[The session](#the-session)), from
+[scripts/session.sh](../scripts/session.sh). The hook appends the variant to
+`$session` and runs it in the terminal. It runs in a copy of the port with one
+timestamp and a fixed home directory, so no name or path from your machine gets
+into the images. Use the shared terminal font, `$font`, and 8 pixels of padding.
+Load the theme from the port's own `themes/` folder, and give the application a
+throwaway configuration, so your own settings do not change the images.
+
+See [kitty](https://github.com/kanagawa-community/kitty/blob/main/scripts/window.sh)
+for a terminal,
+[zathura](https://github.com/kanagawa-community/zathura/blob/main/scripts/window.sh)
+for an X11 application, and
+[sway](https://github.com/kanagawa-community/sway/blob/main/scripts/window.sh)
+for a capture of a whole desktop.
+
+A compositor that needs a GPU, such as Hyprland, cannot run in the headless
+sway. Its port keeps a script that runs from a text console on a machine or a
+throwaway VM with a GPU (QEMU with `virtio-vga-gl` works), takes the three
+images with grim, and leaves the frame out, as for any whole desktop. Then run
+`finish-previews.sh`. See
+[Hyprland](https://github.com/kanagawa-community/hyprland/blob/main/scripts/capture-in-session.sh).
+
+An application that cannot run on Linux, such as iTerm2 or Windows Terminal,
+cannot use this script. Render its preview with `render-previews.sh` instead, and
+say in the README that the images show the palette's terminal colors, not the
+application.
+
 ## Social preview
 
 Ports do not run the two steps above by hand. `scripts/finish-previews.sh <name> <port-dir>`
 builds `assets/showcase.png` and `assets/social-preview.png` from the three images in
-`assets/screenshots/`. `render-previews.sh` ends by calling it. Ports with real
-screenshots run it themselves after replacing the three images.
+`assets/screenshots/`. `render-previews.sh` and `capture-windows.sh` end by
+calling it.
 
 GitHub shows a repository's social preview when its link is shared. Every port
 uses the same one: the logo, "Kanagawa for <name>", the variant names, and the
