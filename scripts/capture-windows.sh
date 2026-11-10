@@ -26,7 +26,7 @@
 #   start_sway <config> start a headless sway with extra config lines, sets $socket
 #   stop_display        stop sway and Xwayland
 #
-# Requires: sway, grim, magick, rsync, fontconfig, the FiraCode Nerd Font Mono
+# Requires: sway, grim, magick, rsync, fontconfig, python3, the FiraCode Nerd Font Mono
 # font, Xwayland for X11 ports, and what the port's windows need.
 set -euo pipefail
 
@@ -47,7 +47,7 @@ if [[ ! -f "$here/finish-previews.sh" ]]; then
   KANAGAWA_BOOTSTRAP="$bootstrap" exec bash "$bootstrap/scripts/capture-windows.sh" "$root"
 fi
 [[ -f "$root/scripts/window.sh" ]] || { echo "$root/scripts/window.sh not found" >&2; exit 1; }
-for tool in sway grim magick rsync fc-match; do
+for tool in sway grim magick rsync fc-match python3; do
   command -v "$tool" >/dev/null || { echo "$tool is required" >&2; exit 1; }
 done
 font="FiraCode Nerd Font Mono"
