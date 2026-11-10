@@ -138,9 +138,11 @@ their collapsible sections. Keep the three images in `assets/screenshots/`.
 
 ## Capturing application windows
 
-Ports for terminals, editors, viewers, launchers and window managers take their
-images from real windows with
-[scripts/capture-windows.sh](../scripts/capture-windows.sh). Run it from the
+Ports for terminal emulators and for graphical applications, such as viewers,
+launchers and window managers, take their images from real windows with
+[scripts/capture-windows.sh](../scripts/capture-windows.sh). An application
+that runs inside a terminal, such as a shell, an editor like Helix, or a file
+manager like broot, uses `render-previews.sh` instead. Run it from the
 port's directory. It needs no checkout of this repository:
 
 ```sh
