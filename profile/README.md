@@ -35,29 +35,51 @@ configuration.
 <details open>
 <summary>👾 Code Editors & IDEs</summary>
 
+- [Helix](https://github.com/kanagawa-community/helix)
 - [Kate](https://github.com/kanagawa-community/kate)
+- [micro](https://github.com/kanagawa-community/micro)
 - [Neovim](https://github.com/kanagawa-community/neovim)
 
 </details>
 <details open>
 <summary>💻 Terminals</summary>
 
+- [Alacritty](https://github.com/kanagawa-community/alacritty)
+- [Base16](https://github.com/kanagawa-community/base16)
+- [Foot](https://github.com/kanagawa-community/foot)
+- [Ghostty](https://github.com/kanagawa-community/ghostty)
+- [Gogh](https://github.com/kanagawa-community/gogh)
+- [iTerm2](https://github.com/kanagawa-community/iterm2)
+- [Kitty](https://github.com/kanagawa-community/kitty)
 - [Konsole](https://github.com/kanagawa-community/konsole)
+- [Mintty](https://github.com/kanagawa-community/mintty)
+- [Ptyxis](https://github.com/kanagawa-community/ptyxis)
+- [pywal](https://github.com/kanagawa-community/pywal)
+- [WezTerm](https://github.com/kanagawa-community/wezterm)
+- [Windows Terminal](https://github.com/kanagawa-community/windows-terminal)
+- [Xresources](https://github.com/kanagawa-community/xresources)
 
 </details>
 <details open>
 <summary>🖥️ Desktop</summary>
 
+- [Awesome](https://github.com/kanagawa-community/awesome)
 - [Cursors](https://github.com/kanagawa-community/cursors)
+- [Hyprland](https://github.com/kanagawa-community/hyprland)
 - [Icons](https://github.com/kanagawa-community/icons)
 - [KDE Plasma](https://github.com/kanagawa-community/kde)
 - [SilentSDDM](https://github.com/kanagawa-community/silent-sddm)
+- [Sway](https://github.com/kanagawa-community/sway)
+- [Wofi](https://github.com/kanagawa-community/wofi)
+- [Zathura](https://github.com/kanagawa-community/zathura)
 
 </details>
 <details open>
 <summary>🐚 CLI Tools</summary>
 
+- [aerc](https://github.com/kanagawa-community/aerc)
 - [bat](https://github.com/kanagawa-community/bat)
+- [broot](https://github.com/kanagawa-community/broot)
 - [btop](https://github.com/kanagawa-community/btop)
 - [delta](https://github.com/kanagawa-community/delta)
 - [fish](https://github.com/kanagawa-community/fish)
@@ -67,14 +89,10 @@ configuration.
 
 ### Moving to their own repositories
 
-Terminal, editor, and desktop themes are being split out of the Neovim
-repository's `extras` folder, one repository per application. Each will be
-adopted under the [governance lifecycle](https://github.com/kanagawa-community/.github/blob/main/.github/GOVERNANCE.md)
+The Alfred and Emacs themes are still in the Neovim repository's `extras`
+folder. Each will move to its own repository and be adopted under the
+[governance lifecycle](https://github.com/kanagawa-community/.github/blob/main/.github/GOVERNANCE.md)
 before it is listed above.
-
-Alacritty · Aerc · Alfred · Awesome · Base16 · Broot · Emacs · Foot · Ghostty ·
-Gogh · Helix · Hyprland · iTerm · Kitty · Micro · Mintty · Ptyxis · Pywal ·
-Sway · tmTheme · WezTerm · Windows Terminal · Wofi · Xresources · Zathura
 
 To request a port for your application, open a
 [port request](https://github.com/kanagawa-community/.github/issues/new?template=port-request.yml).
