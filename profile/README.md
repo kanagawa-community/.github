@@ -84,6 +84,8 @@ configuration.
 - [delta](https://github.com/kanagawa-community/delta)
 - [fish](https://github.com/kanagawa-community/fish)
 - [fzf](https://github.com/kanagawa-community/fzf)
+- [gitui](https://github.com/kanagawa-community/gitui)
+- [Oh My Posh](https://github.com/kanagawa-community/oh-my-posh)
 
 </details>
 
