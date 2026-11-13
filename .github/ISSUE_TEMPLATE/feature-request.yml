@@ -1,0 +1,60 @@
+name: Feature request
+
+description: Propose a change to shared Kanagawa organization resources.
+
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for shared organization resources: the palette, shared workflows, the template repository, documentation, and shared branding.
+
+        For a feature in one port, use that port's issue tracker. To propose a new port, use the port request form.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: The shared resource that the request changes.
+      options:
+        - Palette
+        - Shared workflows
+        - Template repository
+        - Documentation
+        - Branding
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this request solve? Describe the situation, not the solution.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What should change? Describe the behavior that you expect.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other ways to solve the problem, and why you did not choose them. Leave empty if there are none.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched the existing issues and found no duplicate.
+          required: true
+        - label: I do not include passwords, tokens, or other secrets.
+          required: true
