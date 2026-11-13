@@ -86,6 +86,7 @@ configuration.
 - [fzf](https://github.com/kanagawa-community/fzf)
 - [gitui](https://github.com/kanagawa-community/gitui)
 - [Oh My Posh](https://github.com/kanagawa-community/oh-my-posh)
+- [Spotifast](https://github.com/kanagawa-community/spotifast)
 
 </details>
 
